@@ -1,0 +1,415 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    border: solid rgb(228, 227, 227) 1px;
+    background-color: rgb(255,255,255);
+}
+.menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    font-size: 18px;
+    color: rgb(67,67,67);
+    cursor: pointer;
+    font-family: 'Inter';
+}
+.menu ul li{
+    position: relative;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: rgb(67,67,67);
+}
+.menu ul li::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 0px;
+    background-color:rgb(181,28,28);
+    left:0px;
+    bottom: -7px;
+
+}
+.menu ul li:hover:after{
+    width: 100%;
+    transition: 0.5s;
+    color:rgb(240, 50, 50) ;
+    
+}
+.menu ul li a:hover{
+    color:rgb(236, 24, 24) ;
+}
+
+
+.logoimg i{ 
+    font-size: 20px;
+    background-color:rgb(181,28,28);
+    padding: 10px 10px;
+    border-radius: 50%;
+    color: rgb(255,255,255);
+    display: inline-block; 
+    cursor: pointer;  
+}
+
+ .logoimg:hover{
+    transform: translateY(100px);
+}
+.logotxt{
+    font-size: 20px;
+    font-family: 'poppin',sans-serif;
+    margin-left: 7px;
+    letter-spacing: 1px;
+}
+.logo{
+    margin-left: 20px;
+}
+.auth{
+    margin-right:20px;
+}
+.login{
+    padding: 12px 20px;
+    border-radius: 7px;
+    border: solid rgb(218, 218, 218) 1px;
+    background-color: rgb(255,255,255);
+    cursor: pointer;
+    margin-right:7px;
+}
+.login a{
+    text-decoration: none;
+    color: rgb(38,38,38);
+}
+.signup{
+    padding: 12px 20px;
+    border-radius: 7px;
+    border:none;
+    background-color:rgb(181,28,28) ;
+    color:rgb(255,255,255);
+    cursor: pointer;
+}
+.signup a{
+    text-decoration: none;
+    color:rgb(255,255,255);
+}
+.login:hover{
+    transform: translateY(-7px);
+    background-color:rgb(255, 197, 197) ;
+    color:rgb(199, 9, 9) ;
+    transition: 0.7s;
+}
+.login:hover a{
+    color:rgb(199, 9, 9) ;
+}
+.signup:hover{
+    transform: translateY(-7px);
+    font-size: 14px;
+    transition: 0.7s;
+
+}
+
+#toggle-bnt{
+    display: none;
+}
+
+@media (max-width: 950px){
+    body{
+        position: relative;
+    }
+    .menu{
+        position: absolute;
+        top: 70px;
+        padding: 20px 0px;
+        width: 100%;
+        border-bottom: solid rgb(181,28,28) 1px;
+        border-radius: 20px;
+        left: -100%;
+        background-color:rgb(255, 249, 249);
+        transition: 0.7s;
+    }
+    .menu ul{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        
+    }
+    .signup{
+        display: none;
+    }
+    #toggle-bnt{
+        display: block;
+        position: absolute;
+        right:20px;
+        top: 25px;
+        font-size:25px;
+        font-weight:700;
+    }
+    .login{
+        margin-right: 35px;
+        background-color:rgb(181,28,28) ;
+        color: white;
+    }
+}
+
+.home{
+    font-family: 'poppin',sans-serif;
+    padding: 20px 20px;
+    width: 650px;
+    height: 400px;
+
+}
+.home h1{
+    font-size:55px;
+    margin-top: 15px;
+    
+}
+.home p{
+    font-size:20px;
+    color: rgb(76, 77, 77);
+    margin-top:20px;
+    letter-spacing: 1px;
+    line-height:30px;
+}
+.homeh1{
+    color: rgb(181,28,28);
+}
+.Donate{
+    margin-top: 25px;
+    padding: 15px 3rem;
+    background-color:rgb(181,28,28) ;
+    color: white;
+    border: none;
+    border-radius: 4px;
+
+}
+
+.Donate a ,i{
+   text-decoration: none;
+   color: white;
+   font-size: 15px;
+   cursor: pointer;
+}
+
+.Donate i{
+    margin-left:7px;
+    font-size: 15px;
+}
+
+.learn{
+    margin-top: 25px;
+    margin-left: 10px;
+    padding: 15px 3rem;
+    border: none;
+    border-radius: 4px
+    
+}
+.learn a ,i{
+   text-decoration: none;
+   color: rgb(38, 39, 39);
+   font-size: 15px;
+   cursor: pointer;
+}
+
+.learn i{
+    margin-left:7px;
+    font-size: 15px;
+}
+.learn:hover{
+    transform: translateY(-6px);
+    transition: 0.6s;
+    background-color:rgb(255, 197, 197) ;
+    color:rgb(199, 9, 9) ;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.images{
+    height: 400px;
+    border: solid black 2px;
+    width: 600px;
+    background-image: url('img1.jpg');
+    border: none;
+    background-size: cover;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+.images:hover{
+    transform: scale(5px);
+    transition: 1s;
+}
+
+@media (max-width:950px){
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .home{
+        width: 100%;
+        text-align: center;
+    }
+    .images{
+        width: 90%;
+        margin-right: 0px;
+    }
+}
+@media (max-width:600px){
+    .home{
+        height:100%;
+    }
+    .home h1{
+        font-size:50px;
+    }
+
+}
+.quickaction{
+    margin-top:6rem;
+    background-color:rgb(251,251,251);
+    padding-top: 30px;
+    padding-bottom: 40px;
+    
+}
+.quickdata{
+    text-align: center;
+    padding-top: 10px;
+}
+.quickdata h1{
+    font-size: 35px;
+    font-family: 'poppin',sans-serif;
+    
+}
+.quickdata p{
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: 'poppin',sans-serif;
+    color: rgb(65, 66, 66);
+    letter-spacing: 1px;
+}
+
+.quickbox{
+     margin-top:5rem;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+}
+.location{
+    width:23%;
+    padding: 20px 0px;
+    background-color:rgb(255,255,255);
+    border-radius: 7px;
+    border: solid rgb(197, 197, 197) 1px ;
+    cursor: pointer;
+}
+.location{
+    text-align: center;
+    
+}
+.location i{
+   font-size: 35px;
+   color: rgb(181,28,28);
+   background-color:rgb(252, 214, 214);
+   padding: 15px 20px;
+   border-radius: 50%;
+
+}
+.location h4{
+    margin-top: 15px;
+    font-size: 18px;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color:rgb(38,38,38);
+    letter-spacing: 0.5px;
+}
+.location p{
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    color:rgb(144,144,144);
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+.location:hover{
+    box-shadow: 0px 7px 20px rgb(216, 216, 216);
+}
+
+@media(min-width: 600px) and (max-width:1000px){
+    .quickbox{
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content:center;
+        align-items: center;
+    }
+    .location{
+        width: 40%;
+    
+    }
+}
+@media(max-width: 600px){
+    .quickbox{
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content:center;
+        align-items: center;
+    }
+    .location{
+        width: 80%;
+    
+    }
+}
+.procedure{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin-top: 4rem;
+    
+}
+.procedure h1{
+    font-size: 35px;
+    font-family: 'poppin',sans-serif;
+    
+}
+.procedure p{
+    margin-top: 10px;
+    font-size: 15px;
+    font-family: 'poppin',sans-serif;
+    color: rgb(65, 66, 66);
+    letter-spacing: 1px;
+}
+.proimg{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 90%;
+    height: 350px;
+    
+    background-image: url('procedure.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media (min-width:600px) and (max-width:1000px){
+    .proimg{
+        width: 98%;
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px){
+    .proimg{
+        height:150px;
+    }
+}
