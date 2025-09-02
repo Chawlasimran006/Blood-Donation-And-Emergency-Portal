@@ -1,0 +1,309 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Font */
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ---------------- NAVBAR ---------------- */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    border: solid rgb(228, 227, 227) 1px;
+    background-color: rgb(255,255,255);
+}
+.menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    font-size: 18px;
+    color: rgb(67,67,67);
+    cursor: pointer;
+    font-family: 'Inter';
+}
+.menu ul li{
+    position: relative;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: rgb(67,67,67);
+}
+.menu ul li::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 0px;
+    background-color:rgb(181,28,28);
+    left:0px;
+    bottom: -7px;
+}
+.menu ul li:hover:after{
+    width: 100%;
+    transition: 0.5s;
+}
+.menu ul li a:hover,
+.menu ul li a.active{
+    color:rgb(236, 24, 24) ;
+}
+
+/* Logo */
+.logoimg i{ 
+    font-size: 20px;
+    background-color:rgb(181,28,28);
+    padding: 10px 10px;
+    border-radius: 50%;
+    color: rgb(255,255,255);
+    display: inline-block; 
+    cursor: pointer;  
+}
+.logotxt{
+    font-size: 20px;
+    margin-left: 7px;
+    letter-spacing: 1px;
+}
+.logo{
+    margin-left: 20px;
+}
+
+/* Auth Buttons */
+.auth{
+    margin-right:20px;
+}
+.login{
+    padding: 12px 20px;
+    border-radius: 7px;
+    border: solid rgb(218, 218, 218) 1px;
+    background-color: rgb(255,255,255);
+    cursor: pointer;
+    margin-right:7px;
+}
+.login a{
+    text-decoration: none;
+    color: rgb(38,38,38);
+}
+.signup{
+    padding: 12px 20px;
+    border-radius: 7px;
+    border:none;
+    background-color:rgb(181,28,28) ;
+    color:rgb(255,255,255);
+    cursor: pointer;
+}
+.signup a{
+    text-decoration: none;
+    color:rgb(255,255,255);
+}
+.login:hover{
+    transform: translateY(-7px);
+    background-color:rgb(255, 197, 197) ;
+    color:rgb(199, 9, 9) ;
+    transition: 0.7s;
+}
+.login:hover a{
+    color:rgb(199, 9, 9) ;
+}
+.signup:hover{
+    transform: translateY(-7px);
+    font-size: 14px;
+    transition: 0.7s;
+}
+#toggle-bnt{
+    display: none;
+}
+
+/* Responsive Navbar */
+@media (max-width: 950px){
+    body{
+        position: relative;
+    }
+    .menu{
+        position: absolute;
+        top: 70px;
+        padding: 20px 0px;
+        width: 100%;
+        border-bottom: solid rgb(181,28,28) 1px;
+        border-radius: 20px;
+        left: -100%;
+        background-color:rgb(255, 249, 249);
+        transition: 0.7s;
+    }
+    .menu ul{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .signup{
+        display: none;
+    }
+    #toggle-bnt{
+        display: block;
+        position: absolute;
+        right:20px;
+        top: 25px;
+        font-size:25px;
+        font-weight:700;
+    }
+    .login{
+        margin-right: 35px;
+        background-color:rgb(181,28,28) ;
+        color: white;
+    }
+    .login a{
+        color: white;
+    }
+}
+
+/* Donate Section */
+.donate-section {
+    background-color: #fff5f5;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.donate-container {
+    background-color: #fff;
+    width: 500px;
+    max-width: 100%;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.donate-container h1 {
+    color: #d32f2f;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.donate-container p {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+    border-color: #d32f2f;
+    box-shadow: 0 0 8px rgba(211, 47, 47, 0.3);
+}
+
+.submit-btn {
+    background-color: #d32f2f;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #b71c1c;
+}
+
+/* ✅ RESPONSIVE DESIGN */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+        gap: 15px;
+    }
+
+    .donate-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .donate-container h1 {
+        font-size: 24px;
+    }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .donate-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .donate-container h1 {
+        font-size: 22px;
+    }
+
+    .donate-container p {
+        font-size: 14px;
+    }
+
+    input,
+    select {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .submit-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
