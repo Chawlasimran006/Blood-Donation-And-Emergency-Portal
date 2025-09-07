@@ -363,9 +363,18 @@ body{
     color: rgb(65, 66, 66);
     letter-spacing: 1px;
 }
+.pro1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media(min-width:1000px){
+  .proimg{
+     margin-left: 80px;
+  }
+}
 .proimg{
-    margin-left: auto;
-    margin-right: auto;
+    
     margin-top: 20px;
     width: 90%;
     height: 350px;
