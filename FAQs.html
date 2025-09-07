@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs - SaveLife</title>
+
+  <!-- Font Awesome for heart icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Main site styles (navbar, footer, global styles) -->
+  <link rel="stylesheet" href="donation.css">
+  <!-- FAQ specific styles -->
+  <link rel="stylesheet" href="faqs.css">
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+  <div class="logo">
+    <span class="logoimg">
+      <i class="fa-solid fa-heart"></i>
+    </span>
+    <span class="logotxt">SaveLife</span>
+  </div>
+  <div class="menu">
+      <ul>
+          <li><a href="donation.html">Home</a></li>
+          <li><a href="why-donate.html">Why Donate</a></li>
+          <li><a href="find-drive.html">Find a Drive</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="faqs.html" class="active">FAQs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+  </div>
+  <div class="auth">
+      <button class="login">Login</button>
+      <button class="signup">Sign Up</button>
+      <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
+  </div>
+</nav>
+
+
+  <!-- FAQ Section -->
+  <section class="faqs-section">
+    <h2>Frequently Asked Questions</h2>
+    <p class="faq-intro">Here are some common questions and answers about blood donation and SaveLife.</p>
+
+    <div class="faq-container">
+      <!-- FAQ 1 -->
+      <div class="faq-item">
+        <button class="faq-question">Who can donate blood?</button>
+        <div class="faq-answer">
+          <p>Anyone between the ages of 18–65, weighing at least 50 kg, and in good health can donate blood. Specific eligibility may vary depending on medical conditions.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <button class="faq-question">How often can I donate blood?</button>
+        <div class="faq-answer">
+          <p>You can donate whole blood every 3 months (90 days). Platelet and plasma donations may have shorter intervals.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <button class="faq-question">Is blood donation safe?</button>
+        <div class="faq-answer">
+          <p>Yes, blood donation is completely safe. A new sterile needle is used each time, and donors are carefully screened before donation.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <button class="faq-question">What should I do before donating?</button>
+        <div class="faq-answer">
+          <p>Eat a healthy meal, drink plenty of water, and avoid alcohol before donating. Carry a valid ID when visiting the donation center.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item">
+        <button class="faq-question">What happens to my blood after donation?</button>
+        <div class="faq-answer">
+          <p>Your blood is tested, processed, and stored. It is then distributed to hospitals and patients in need, ensuring it reaches someone who requires it urgently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SaveLife. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // FAQ Toggle Script
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const answer = button.nextElementSibling;
+        button.classList.toggle("active");
+        answer.style.maxHeight = answer.style.maxHeight ? null : answer.scrollHeight + "px";
+      });
+    });
+  </script>
+</body>
+</html>

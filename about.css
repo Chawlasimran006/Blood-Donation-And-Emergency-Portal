@@ -1,0 +1,167 @@
+/* ---------------- ABOUT US PAGE ---------------- */
+
+.about {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header Section */
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-header h1 {
+  font-size: 40px;
+  color: rgb(181, 28, 28);
+  font-weight: 700;
+}
+
+.about-header p {
+  font-size: 18px;
+  color: rgb(80, 80, 80);
+  max-width: 700px;
+  margin: 10px auto 0 auto;
+  line-height: 1.6;
+}
+
+/* Section Headings (Mission, What We Do, Team) */
+.about-text h2,
+.about-team h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: rgb(181, 28, 28);   /* ✅ Red color */
+  font-weight: 700;
+  text-align: center;        /* ✅ Center aligned */
+}
+
+/* About Container (stacked layout, centered) */
+.about-container {
+  display: flex;
+  flex-direction: column;   /* ✅ one below the other */
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+  margin-bottom: 5rem;
+}
+
+.about-text {
+  max-width: 800px;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: rgb(181, 28, 28);   /* ✅ Red like About SaveLife */
+  font-weight: 700;
+  text-align: center;
+}
+
+.about-text p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-text ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  display: inline-block;
+  text-align: left;
+}
+
+.about-text ul li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.about-text ul li i {
+  color: rgb(181, 28, 28);
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* About Image */
+.about-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+
+.about-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Team Section */
+.about-team {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.team-card {
+  background: #fff;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.team-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.team-card h3 {
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.team-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-text p {
+    margin: 0 auto;
+  }
+}
