@@ -232,7 +232,7 @@ body{
 .images{
     height: 400px;
     width: 600px;
-    background-image: url('img1.jpg');
+    background-image: url('img2.jpg');
     border: none;
     background-size: cover;
     border-radius: 20px;
