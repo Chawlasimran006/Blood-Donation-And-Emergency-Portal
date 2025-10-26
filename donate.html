@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate Blood | Blood Donation Portal</title>
     <link rel="stylesheet" href="donate.css">
-  
+    
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="icon" href="favicon1.ico">
-    
     
 </head>
 <body>
     <!-- Navigation Bar -->
-    
+
         <nav class="navbar">
             <div class="logo">
               <span class="logoimg">
@@ -48,17 +46,17 @@
 
             <form id="donateForm" action="#" method="POST">
                 <div class="form-group">
-                    <label>Full Name</label>
+                    <label class="required">Full Name</label>
                     <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Email</label>
+                    <label class="required">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Blood Group</label>
+                    <label class="required">Blood Group</label>
                     <select id="blood_group" name="blood_group" required>
                         <option value="">Select Blood Group</option>
                         <option>A+</option>
@@ -73,12 +71,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Age</label>
-                    <input type="number" id="age" name="age" placeholder="Enter your age" required>
+                    <label class="required">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age" required min="18" max="65">
                 </div>
 
                 <div class="form-group">
-                    <label>Gender</label>
+                    <label class="required">Gender</label>
                     <select id="gender" name="gender" required>
                         <option value="">Select Gender</option>
                         <option>Male</option>
@@ -88,12 +86,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Location</label>
+                    <label class="required">Location</label>
                     <input type="text" id="location" name="location" placeholder="Enter your city/location" required>
                 </div>
 
                 <div class="form-group">
-                    <label>Contact Number</label>
+                    <label class="required">Contact Number</label>
                     <input type="tel" id="contact_number" name="contact_number" placeholder="Enter your mobile number" required>
                 </div>
 
@@ -104,6 +102,11 @@
             <p id="thankYouMessage" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
                 🎉 Thank you for your donation!
             </p>
+
+            <!-- 👇 NEW SECTION for DOM Manipulation -->
+            <h2 style="margin-top:30px;">Registered Donors</h2>
+            <div id="donorList" style="max-height:300px; overflow-y:auto;"></div>
+
         </div>
     </section>
 
@@ -111,6 +114,5 @@
 
     <!-- JavaScript -->
     <script src="donate.js"></script>
-    
 </body>
 </html>
