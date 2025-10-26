@@ -1,5 +1,4 @@
 /* ---------------- ABOUT US PAGE ---------------- */
-
 .about {
   padding: 4rem 2rem;
   background-color: #fff;
@@ -26,20 +25,21 @@
   line-height: 1.6;
 }
 
-/* Section Headings (Mission, What We Do, Team) */
+/* Section Headings */
 .about-text h2,
-.about-team h2 {
+.about-team h2,
+.impact h2 {
   font-size: 32px;
   margin-bottom: 20px;
-  color: rgb(181, 28, 28);   /* ✅ Red color */
+  color: rgb(181, 28, 28);
   font-weight: 700;
-  text-align: center;        /* ✅ Center aligned */
+  text-align: center;
 }
 
-/* About Container (stacked layout, centered) */
+/* About Container */
 .about-container {
   display: flex;
-  flex-direction: column;   /* ✅ one below the other */
+  flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 30px;
@@ -50,14 +50,6 @@
   max-width: 800px;
 }
 
-.about-text h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: rgb(181, 28, 28);   /* ✅ Red like About SaveLife */
-  font-weight: 700;
-  text-align: center;
-}
-
 .about-text p {
   font-size: 16px;
   color: #555;
@@ -65,50 +57,7 @@
   margin-bottom: 20px;
 }
 
-.about-text ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
-  display: inline-block;
-  text-align: left;
-}
-
-.about-text ul li {
-  font-size: 16px;
-  margin-bottom: 12px;
-  color: #444;
-  display: flex;
-  align-items: center;
-}
-
-.about-text ul li i {
-  color: rgb(181, 28, 28);
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-/* About Image */
-.about-image img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
-
-.about-image img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
-
 /* Team Section */
-.about-team {
-  text-align: center;
-  margin-top: 4rem;
-}
-
 .team-grid {
   display: flex;
   justify-content: center;
@@ -122,8 +71,9 @@
   border-radius: 12px;
   padding: 20px;
   width: 220px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
   transition: 0.3s;
+  text-align: center;
 }
 
 .team-card img {
@@ -147,7 +97,54 @@
 
 .team-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Impact Section */
+.impact {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 30px 20px;
+  width: 220px;
+  text-align: center;
+  transition: transform 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-icon {
+  font-size: 30px;
+  color: rgb(181, 28, 28);
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.stat-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
 }
 
 /* Responsive Fix */
@@ -155,13 +152,5 @@
   .about-container {
     flex-direction: column;
     text-align: center;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-
-  .about-text p {
-    margin: 0 auto;
   }
 }
