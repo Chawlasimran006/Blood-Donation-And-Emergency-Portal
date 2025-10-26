@@ -11,9 +11,33 @@
   <!-- Main site styles (navbar, footer, global styles) -->
   <link rel="stylesheet" href="donation.css">
   <!-- FAQ specific styles -->
-  <link rel="stylesheet" href="faqs.css">
+  <link rel="stylesheet" href="FAQs.css">
   <link rel="icon" href="favicon1.ico">
-    
+
+  <style>
+    /* Sticky Footer Styling - same as About Us page */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #d62828; /* Red theme color */
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 60px; /* Prevent overlap with footer */
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
 
 
@@ -21,29 +45,29 @@
   <!-- Navbar -->
   <header>
     <nav class="navbar">
-  <div class="logo">
-    <span class="logoimg">
-      <i class="fa-solid fa-heart"></i>
-    </span>
-    <span class="logotxt">SaveLife</span>
-  </div>
-  <div class="menu">
-      <ul>
-          <li><a href="donation.html">Home</a></li>
-          <li><a href="why-donate.html">Why Donate</a></li>
-          <li><a href="find-drive.html">Find a Drive</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="faqs.html" class="active">FAQs</a></li>
-          <li><a href="contact.html">Contact</a></li>
-      </ul>
-  </div>
-  <div class="auth">
-      <button class="login">Login</button>
-      <button class="signup">Sign Up</button>
-      <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
-  </div>
-</nav>
-
+      <div class="logo">
+        <span class="logoimg">
+          <i class="fa-solid fa-heart"></i>
+        </span>
+        <span class="logotxt">SaveLife</span>
+      </div>
+      <div class="menu">
+          <ul>
+              <li><a href="donation.html">Home</a></li>
+              <li><a href="why-donate.html">Why Donate</a></li>
+              <li><a href="find-drive.html">Find a Drive</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="FAQs.html" class="active">FAQs</a></li>
+              <li><a href="contact.html">Contact</a></li>
+          </ul>
+      </div>
+      <div class="auth">
+          <button class="login">Login</button>
+          <button class="signup">Sign Up</button>
+          <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
+      </div>
+    </nav>
+  </header>
 
   <!-- FAQ Section -->
   <section class="faqs-section">
@@ -95,7 +119,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 SaveLife. All rights reserved.</p>
+    <p>&copy; 2025 SaveLife. All Rights Reserved.</p>
   </footer>
 
   <script>

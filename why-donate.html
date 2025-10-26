@@ -7,7 +7,31 @@
   <link rel="stylesheet" href="donation.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="icon" href="favicon1.ico">
-    
+
+  <style>
+    /* --- Footer stick styling --- */
+    .footer {
+      position: fixed;         /* Keeps footer always visible at bottom */
+      bottom: 0;               /* Stick to bottom */
+      left: 0;
+      width: 100%;             /* Full width */
+      background-color: #d32f2f;  /* Red theme color (same as navbar) */
+      color: #fff;             /* White text */
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;           /* Keeps it above content */
+    }
+
+    /* Prevent footer overlap with page content */
+    body {
+      margin: 0;
+      padding-bottom: 60px; /* Equal or greater than footer height */
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -24,7 +48,7 @@
             <li><a href="why-donate.html" class="active">Why Donate</a></li>
             <li><a href="find-drive.html">Find a Drive</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="FAQs.html">FAQs</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </div>
