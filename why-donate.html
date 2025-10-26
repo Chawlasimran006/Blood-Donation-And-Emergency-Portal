@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,28 +12,36 @@
   <style>
     /* --- Footer stick styling --- */
     .footer {
-      position: fixed;         /* Keeps footer always visible at bottom */
-      bottom: 0;               /* Stick to bottom */
+      position: fixed;
+      /* Keeps footer always visible at bottom */
+      bottom: 0;
+      /* Stick to bottom */
       left: 0;
-      width: 100%;             /* Full width */
-      background-color: #d32f2f;  /* Red theme color (same as navbar) */
-      color: #fff;             /* White text */
+      width: 100%;
+      /* Full width */
+      background-color: #d32f2f;
+      /* Red theme color (same as navbar) */
+      color: #fff;
+      /* White text */
       text-align: center;
       padding: 10px 0;
       font-size: 14px;
       font-weight: 500;
       box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
-      z-index: 1000;           /* Keeps it above content */
+      z-index: 1000;
+      /* Keeps it above content */
     }
 
     /* Prevent footer overlap with page content */
     body {
       margin: 0;
-      padding-bottom: 60px; /* Equal or greater than footer height */
+      padding-bottom: 60px;
+      /* Equal or greater than footer height */
       box-sizing: border-box;
     }
   </style>
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar">
@@ -43,19 +52,19 @@
       <span class="logotxt">SaveLife</span>
     </div>
     <div class="menu">
-        <ul>
-            <li><a href="donation.html">Home</a></li>
-            <li><a href="why-donate.html" class="active">Why Donate</a></li>
-            <li><a href="find-drive.html">Find a Drive</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="FAQs.html">FAQs</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <ul>
+        <li><a href="donation.html">Home</a></li>
+        <li><a href="why-donate.html" class="active">Why Donate</a></li>
+        <li><a href="find-drive.html">Find a Drive</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
     <div class="auth">
-        <button class="login">Login</button>
-        <button class="signup">Sign Up</button>
-        <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
+      <button class="login" onclick="window.location.href='login.html'">Login</button>
+      <button class="signup" onclick="window.location.href='sign.html'">Sign Up</button>
+      <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
     </div>
   </nav>
 
@@ -102,4 +111,5 @@
 
   <script src="donation.js"></script>
 </body>
+
 </html>

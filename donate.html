@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate Blood | Blood Donation Portal</title>
     <link rel="stylesheet" href="donate.css">
-    
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
+
 </head>
+
 <body>
     <!-- Navigation Bar -->
 
-        <nav class="navbar">
-            <div class="logo">
-              <span class="logoimg">
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logoimg">
                 <i class="fa-solid fa-heart"></i>
-              </span>
-              <span class="logotxt">SaveLife</span>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="donation.html">Home</a></li>
-                    <li><a href="why-donate.html">Why Donate</a></li>
-                    <li><a href="">Find a Drive</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="">FAQs</a></li>
-                    <li><a href="">Contact</a></li>
-                </ul>
-            </div>
-            <div class="auth">
-                <button class="login"><a href="">Login</a></button>
-                <button class="signup"><a href="">Sign Up</a></button>
-                <i class="fas fa-bars" style="cursor:pointer ;" id="toggle-bnt"></i>
-            </div>
-        </nav>  
-    
+            </span>
+            <span class="logotxt">SaveLife</span>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="donation.html">Home</a></li>
+                <li><a href="why-donate.html">Why Donate</a></li>
+                <li><a href="">Find a Drive</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="">FAQs</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+        <div class="auth">
+            <button class="login" onclick="window.location.href='login.html'">Login</button>
+            <button class="signup" onclick="window.location.href='sign.html'">Sign Up</button>
+            <i class="fas fa-bars" style="cursor:pointer ;" id="toggle-bnt"></i>
+        </div>
+    </nav>
+
 
     <!-- Donate Now Form -->
     <section class="donate-section">
@@ -92,7 +94,8 @@
 
                 <div class="form-group">
                     <label class="required">Contact Number</label>
-                    <input type="tel" id="contact_number" name="contact_number" placeholder="Enter your mobile number" required>
+                    <input type="tel" id="contact_number" name="contact_number" placeholder="Enter your mobile number"
+                        required>
                 </div>
 
                 <div class="form-group">
@@ -110,9 +113,10 @@
         </div>
     </section>
 
-     
+
 
     <!-- JavaScript -->
     <script src="donate.js"></script>
 </body>
+
 </html>
