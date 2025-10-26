@@ -5,111 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQs - SaveLife</title>
 
-  <!-- Font Awesome for heart icon -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Main site styles (navbar, footer, global styles) -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="donation.css">
-  <!-- FAQ specific styles -->
   <link rel="stylesheet" href="FAQs.css">
+
   <link rel="icon" href="favicon1.ico">
-
-  <style>
-    /* Sticky Footer Styling - same as About Us page */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #d62828; /* Red theme color */
-      color: #fff;
-      text-align: center;
-      padding: 10px 0;
-      font-size: 14px;
-      font-weight: 500;
-      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
-      z-index: 1000;
-    }
-
-    body {
-      margin: 0;
-      padding-bottom: 60px; /* Prevent overlap with footer */
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
 </head>
-
-
 <body>
   <!-- Navbar -->
   <header>
     <nav class="navbar">
       <div class="logo">
-        <span class="logoimg">
-          <i class="fa-solid fa-heart"></i>
-        </span>
+        <span class="logoimg"><i class="fa-solid fa-heart"></i></span>
         <span class="logotxt">SaveLife</span>
       </div>
       <div class="menu">
-          <ul>
-              <li><a href="donation.html">Home</a></li>
-              <li><a href="why-donate.html">Why Donate</a></li>
-              <li><a href="find-drive.html">Find a Drive</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="FAQs.html" class="active">FAQs</a></li>
-              <li><a href="contact.html">Contact</a></li>
-          </ul>
+        <ul>
+          <li><a href="donation.html">Home</a></li>
+          <li><a href="why-donate.html">Why Donate</a></li>
+          <li><a href="find-drive.html">Find a Drive</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="FAQs.html" class="active">FAQs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
       <div class="auth">
-          <button class="login">Login</button>
-          <button class="signup">Sign Up</button>
-          <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
+        <button class="login">Login</button>
+        <button class="signup">Sign Up</button>
+        <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
       </div>
     </nav>
   </header>
 
-  <!-- FAQ Section -->
+  <!-- FAQs Section -->
   <section class="faqs-section">
     <h2>Frequently Asked Questions</h2>
     <p class="faq-intro">Here are some common questions and answers about blood donation and SaveLife.</p>
 
     <div class="faq-container">
-      <!-- FAQ 1 -->
       <div class="faq-item">
-        <button class="faq-question">Who can donate blood?</button>
+        <button class="faq-question">
+          Who can donate blood? 
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="faq-answer">
           <p>Anyone between the ages of 18–65, weighing at least 50 kg, and in good health can donate blood. Specific eligibility may vary depending on medical conditions.</p>
         </div>
       </div>
 
-      <!-- FAQ 2 -->
       <div class="faq-item">
-        <button class="faq-question">How often can I donate blood?</button>
+        <button class="faq-question">
+          How often can I donate blood? 
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="faq-answer">
           <p>You can donate whole blood every 3 months (90 days). Platelet and plasma donations may have shorter intervals.</p>
         </div>
       </div>
 
-      <!-- FAQ 3 -->
       <div class="faq-item">
-        <button class="faq-question">Is blood donation safe?</button>
+        <button class="faq-question">
+          Is blood donation safe? 
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="faq-answer">
           <p>Yes, blood donation is completely safe. A new sterile needle is used each time, and donors are carefully screened before donation.</p>
         </div>
       </div>
 
-      <!-- FAQ 4 -->
       <div class="faq-item">
-        <button class="faq-question">What should I do before donating?</button>
+        <button class="faq-question">
+          What should I do before donating? 
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="faq-answer">
           <p>Eat a healthy meal, drink plenty of water, and avoid alcohol before donating. Carry a valid ID when visiting the donation center.</p>
         </div>
       </div>
 
-      <!-- FAQ 5 -->
       <div class="faq-item">
-        <button class="faq-question">What happens to my blood after donation?</button>
+        <button class="faq-question">
+          What happens to my blood after donation? 
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="faq-answer">
           <p>Your blood is tested, processed, and stored. It is then distributed to hospitals and patients in need, ensuring it reaches someone who requires it urgently.</p>
         </div>
@@ -117,18 +98,32 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Sticky Footer -->
   <footer>
     <p>&copy; 2025 SaveLife. All Rights Reserved.</p>
   </footer>
 
+  <!-- JS for Toggle -->
   <script>
-    // FAQ Toggle Script
-    document.querySelectorAll(".faq-question").forEach(button => {
-      button.addEventListener("click", () => {
-        const answer = button.nextElementSibling;
-        button.classList.toggle("active");
-        answer.style.maxHeight = answer.style.maxHeight ? null : answer.scrollHeight + "px";
+    const faqButtons = document.querySelectorAll(".faq-question");
+
+    faqButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const answer = btn.nextElementSibling;
+
+        // Toggle active class
+        btn.classList.toggle("active");
+
+        // Toggle max-height
+        if (answer.style.maxHeight) {
+          answer.style.maxHeight = null;
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+
+        // Rotate icon
+        const icon = btn.querySelector("i");
+        icon.classList.toggle("fa-rotate-180");
       });
     });
   </script>
