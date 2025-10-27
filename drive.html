@@ -44,15 +44,16 @@
 			function createDriveCard(data){
 				const card = document.createElement('div');
 				card.className = 'drive-card';
-				card.innerHTML = `
-					<div style="display:flex;justify-content:space-between;align-items:center">
+						card.innerHTML = `
+							<div class="pin"><i class="fa-solid fa-location-dot"></i></div>
+							<div style="display:flex;justify-content:space-between;align-items:center">
 						<div style="display:flex;gap:10px;align-items:center">
 							<span class="tag">Blood Drive</span>
 							<h3 style="margin:0">${data.orgName || 'College'}</h3>
 						</div>
 						<div style="color:#777"><i class="fa-regular fa-location-dot"></i></div>
 					</div>
-					<p style="color:#666;margin:8px 0;font-size:14px">${data.address || ''}</p>
+				<p style="color:#666;margin:8px 0;font-size:14px">${data.address || ''}</p>
 					<div class="drive-meta">${data.city || ''} • ${data.date || ''} ${data.time ? ' • ' + data.time : ''}</div>
 					<div class="drive-row"><i class="fa-regular fa-user"></i> Expected: ${data.expected || 'N/A'}</div>
 					<hr style="margin:10px 0;border-top:1px solid #f0f0f0">

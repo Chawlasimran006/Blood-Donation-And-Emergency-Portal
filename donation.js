@@ -68,8 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function createDriveCard(data){
         const card = document.createElement('div');
         card.className = 'drive-card';
-        card.innerHTML = `
-                    <div style="display:flex;justify-content:space-between;align-items:center">
+          card.innerHTML = `
+              <div class="pin"><i class="fa-solid fa-location-dot"></i></div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
                         <div style="display:flex;gap:10px;align-items:center">
                             <span class="tag">Blood Drive</span>
                             <h3 style="margin:0">${escapeHtml(data.orgName || 'Unnamed Drive')}</h3>

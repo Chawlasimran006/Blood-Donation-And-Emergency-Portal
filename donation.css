@@ -1017,10 +1017,15 @@ body{
   border:1px solid rgba(185,28,28,0.06);
   position:relative;
 }
-.drive-card .tag{display:inline-block;background: #fdecea;color:#b91c1c;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:700}
-.drive-card h3{margin:6px 0 6px;color:#111;font-size:18px}
+.drive-card .tag{display:inline-block;background: #b91c1c;color:#fff;padding:6px 10px;border-radius:18px;font-size:12px;font-weight:700}
+.drive-card h3{margin:6px 0 6px;color:#111;font-size:16px}
 .drive-meta{font-size:13px;color:#666;margin:6px 0}
 .drive-row{display:flex;align-items:center;gap:10px;font-size:13px;color:#666;margin-top:6px}
+
+/* small location pin at top-right */
+.drive-card .pin{
+  position:absolute;right:14px;top:14px;width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid #eee;display:flex;align-items:center;justify-content:center;color:#777;box-shadow:0 4px 10px rgba(0,0,0,0.04)
+}
 
 @media(max-width:900px){
   .drives-grid{grid-template-columns: repeat(auto-fit,minmax(260px,1fr));}
