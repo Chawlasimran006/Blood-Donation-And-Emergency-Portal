@@ -22,7 +22,7 @@
         <ul>
             <li><a href="">Home</a></li>
             <li><a href="why-donate.html">Why Donate</a></li>
-            <li><a href="">Find a Drive</a></li>
+            <li><a href="drive.html">Find a Drive</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="FAQs.html">FAQs</a></li>
             <li><a href="Contact.html">Contact</a></li>
@@ -57,7 +57,7 @@
         <h4>Find a Donation Center</h4>
         <p>Locate nearby blood donation centers</p>
       </div>
-      <div class="location">
+      <div class="location" id="drive">
          <i class="fa-regular fa-user" style="color: rgb(22,162,73);"></i>
         <h4>Host a Blood Drive</h4>
         <p>Organize a drive in your community</p>
@@ -74,6 +74,46 @@
       </div>
    </div>
 </div>
+<!-- Modal for Host a Blood Drive -->
+<div id="drive-modal" class="modal" aria-hidden="true">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content" role="dialog" aria-modal="true">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="form-top">
+      <div class="icon-circle"><i class="fa-solid fa-people-group"></i></div>
+      <div>
+        <h2 class="small">Host a Blood Drive</h2>
+        <p style="margin:0;color:#666;font-size:13px">Fill out the form below to organize a blood drive in your community</p>
+      </div>
+    </div>
+    <form id="host-drive-form">
+      <label>Organization Name<input type="text" name="orgName" required placeholder="Your organization name"></label>
+      <label>Contact Person<input type="text" name="contactPerson" placeholder="Contact person name"></label>
+      <div class="row">
+        <label>Email<input type="email" name="email" placeholder="email@example.com"></label>
+        <label>Phone Number<input type="tel" name="phone" placeholder="1234567890"></label>
+      </div>
+      <label>Address<input type="text" name="address" placeholder="Street address"></label>
+      <div class="row">
+        <label>City<input type="text" name="city" placeholder="City name"></label>
+        <label>Date<input type="date" name="date"></label>
+      </div>
+      <div class="row">
+        <label>Time<input type="time" name="time"></label>
+        <label>Expected Number<input type="number" name="expected" min="1" placeholder="Expected donors"></label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-outline" data-close>Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div id="toast" class="toast" aria-live="polite"></div>
+
+<!-- drives are shown on drive.html; list removed from home page -->
 <div class="procedure">
     <h1>How It Works</h1>
     <p>Get started with these simple steps</p>
