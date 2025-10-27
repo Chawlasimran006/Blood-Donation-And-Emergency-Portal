@@ -13,3 +13,21 @@ btn.addEventListener('click',()=>{
 });
 
 
+
+// Add this code block into your donation.js file
+
+document.addEventListener("DOMContentLoaded", function () {
+    // ... (your existing donateForm submit logic) ...
+
+    const findCenterDiv = document.getElementById("center");
+    
+    // Check if the element exists before adding the listener
+    if (findCenterDiv) {
+        findCenterDiv.style.cursor = 'pointer'; // Optional: change cursor to show it's clickable
+
+        findCenterDiv.addEventListener("click", function () {
+            // Redirect the user to the new page
+            window.location.href = "find-center.html";
+        });
+    }
+});

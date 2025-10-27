@@ -1,0 +1,238 @@
+/* ---------------- FIND CENTER PAGE ---------------- */
+
+.center-search {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+.search-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.search-header h1 {
+    font-size: 40px;
+    color: rgb(181, 28, 28); /* Red color */
+    font-weight: 700;
+}
+
+.search-header p {
+    font-size: 18px;
+    color: rgb(80, 80, 80);
+    margin-top: 10px;
+}
+
+/* Form Styling - Better alignment and look */
+.search-form {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-end; /* Align all items to the bottom */
+    background: #fdfdfd;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Allows wrap on small screens */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.search-form label {
+    font-size: 14px;
+    color: rgb(181, 28, 28); /* Red label for importance */
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.search-form label i {
+    margin-right: 5px;
+}
+
+.search-form input[type="number"],
+.search-form select {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+    height: 48px; /* Consistent height */
+}
+
+.search-form input:focus,
+.search-form select:focus {
+    border-color: #d32f2f;
+    outline: none;
+    box-shadow: 0 0 8px rgba(211, 47, 47, 0.4);
+}
+
+.submit-btn {
+    background-color: #d32f2f; 
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px; /* Match input height */
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.submit-btn:not(:disabled):hover {
+    background-color: #b71c1c;
+}
+
+/* Geolocation Status */
+.geolocation-status {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    display: none; 
+    font-weight: 500;
+}
+
+.geolocation-status i {
+    margin-right: 8px;
+}
+
+.geolocation-status.loading {
+    color: #ff9800; /* Amber for loading */
+    background: #fff8e1;
+    display: block;
+}
+
+.geolocation-status.success {
+    color: #4CAF50; /* Green for success */
+    background: #e8f5e9;
+    display: block;
+}
+
+.geolocation-status.error {
+    color: #f44336; /* Error red */
+    background: #ffebee;
+    display: block;
+}
+
+/* Results Section */
+.results-section h2 {
+    font-size: 32px;
+    color: rgb(181, 28, 28);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.results-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    padding-top: 10px;
+}
+
+.center-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 6px solid rgb(181, 28, 28); /* Red highlight on the side */
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.center-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    margin-bottom: 15px;
+}
+
+.card-header h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.card-header p.type {
+    font-size: 14px;
+    color: rgb(181, 28, 28); /* Institution Type in red */
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.card-info p {
+    font-size: 15px;
+    margin: 10px 0;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.card-info i {
+    color: #999;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.distance {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 16px;
+    margin-top: 15px !important;
+    border-top: 1px dashed #eee;
+    padding-top: 15px;
+}
+
+.availability-stock {
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+
+.available {
+    background-color: #e8f5e9; /* Light green background */
+    color: #2e7d32; /* Dark green text */
+}
+
+.not-reported {
+    background-color: #ffebee; /* Light red background */
+    color: #d32f2f; /* Dark red text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .form-group {
+        min-width: 100%;
+    }
+    .submit-btn {
+        width: 100%;
+    }
+}
