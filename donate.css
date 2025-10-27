@@ -307,3 +307,53 @@ select:focus {
         padding: 10px;
     }
 }
+/* Donor List Styles */
+#donorList {
+    margin-top: 20px;
+    max-height: 300px;      /* limit height */
+    overflow-y: auto;       /* scroll if too many donors */
+    padding-right: 5px;     /* prevent scrollbar overlap */
+}
+
+/* Individual Donor Card */
+.donor-card {
+    background-color: #ffecec;        /* soft red background */
+    border: 1px solid #d32f2f;       /* red border */
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 14px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover Effect */
+.donor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Text Styling */
+.donor-card p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.donor-card strong {
+    color: #b71c1c; /* highlight donor name */
+}
+
+label.required::after {
+    content: " *";
+    color: red;
+}
+
+.submit-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+
+

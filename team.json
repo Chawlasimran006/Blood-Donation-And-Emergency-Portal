@@ -1,0 +1,23 @@
+
+[
+  {
+    "name": "Ritika Jindal",
+    "role": "Team Member",
+    "image": "ritika.jpeg"
+  },
+  {
+    "name": "Simran",
+    "role": "Team Member",
+    "image": "images/team2.jpg"
+  },
+  {
+    "name": "Rohan Bisht",
+    "role": "Team Member",
+    "image": "images/team3.jpg"
+  },
+  {
+    "name": "Reyan Ansari",
+    "role": "Team Member",
+    "image": "images/team4.jpg"
+  }
+]

@@ -4,36 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - SaveLife</title>
-  <link rel="stylesheet" href="donation.css"> <!-- common styles -->
-  <link rel="stylesheet" href="about.css">    <!-- about page specific styles -->
+  
+  <!-- Common CSS -->
+  <link rel="stylesheet" href="donation.css">
+  <link rel="stylesheet" href="about.css">
+
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="icon" href="favicon1.ico">
-    
-</head>
 
+  <style>
+    /* Sticky footer */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #d62828;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 -1px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 60px;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <span class="logoimg">
-        <i class="fa-solid fa-heart"></i>
-      </span>
+      <span class="logoimg"><i class="fa-solid fa-heart"></i></span>
       <span class="logotxt">SaveLife</span>
     </div>
     <div class="menu">
-        <ul>
-            <li><a href="donation.html">Home</a></li>
-            <li><a href="why-donate.html">Why Donate</a></li>
-            <li><a href="find-drive.html">Find a Drive</a></li>
-            <li><a href="about.html" class="active">About Us</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <ul>
+        <li><a href="donation.html">Home</a></li>
+        <li><a href="why-donate.html">Why Donate</a></li>
+        <li><a href="find-drive.html">Find a Drive</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
     <div class="auth">
-        <button class="login">Login</button>
-        <button class="signup">Sign Up</button>
-        <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
+      <button class="login" onclick="window.location.href='login.html'">Login</button>
+      <button class="signup" onclick="window.location.href='sign.html'">Sign Up</button>
+      <i class="fas fa-bars" id="toggle-bnt" style="cursor:pointer;"></i>
     </div>
   </nav>
 
@@ -44,40 +69,43 @@
         <h1>About SaveLife</h1>
         <p>We are on a mission to make blood donation easy, accessible, and impactful for everyone.</p>
       </div>
+
       <div class="about-container">
-  <div class="about-text">
-    <h2>Our Mission</h2>
-    <p>
-      SaveLife is a digital platform that connects blood donors, recipients, 
-      hospitals, and blood banks in real-time. Our goal is to ensure that no 
-      life is lost due to unavailability of blood.
-    </p>
-  </div>
-      <div class="about-team">
-        <h2>Our Team</h2>
-        <div class="team-grid">
-          <div class="team-card">
-            <img src="images/team1.jpg" alt="Team Member">
-            <h3>Ritika Jindal</h3>
-            
-          </div>
-          <div class="team-card">
-            <img src="images/team2.jpg" alt="Team Member">
-            <h3>Simran</h3>
-            
-          </div>
-          <div class="team-card">
-            <img src="images/team3.jpg" alt="Team Member">
-            <h3>Rohan Bisht</h3>
-            
-          </div>
-          <div class="team-card">
-            <img src="images/team4.jpg" alt="Team Member">
-            <h3>Reyan Ansari</h3>
-            
-          </div>
+        <div class="about-text">
+          <h2>Our Mission</h2>
+          <p>SaveLife is a digital platform that connects blood donors, recipients, hospitals, and blood banks in real-time. Our goal is to ensure that no life is lost due to unavailability of blood.</p>
         </div>
       </div>
+
+      <!-- Team Section -->
+      <div class="about-team">
+        <h2>Our Team</h2>
+        <div class="team-grid" id="teamGrid">
+          <!-- Team members loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- Impact Section -->
+      <section class="impact">
+        <h2>Our Impact</h2>
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-user"></i></div>
+            <div class="stat-number" id="donors">0</div>
+            <div class="stat-title">Donors</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div class="stat-number" id="bloodUnits">0</div>
+            <div class="stat-title">Blood Units Collected</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="stat-number" id="livesSaved">0</div>
+            <div class="stat-title">Lives Saved</div>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
@@ -86,6 +114,43 @@
     <p>© 2025 SaveLife. All Rights Reserved.</p>
   </footer>
 
-  <script src="donation.js"></script>
+  <!-- JS Scripts -->
+  <script>
+    // Load Team Members dynamically from JSON
+    fetch('team.json')
+      .then(response => response.json())
+      .then(data => {
+        const teamGrid = document.getElementById('teamGrid');
+        data.forEach(member => {
+          const card = document.createElement('div');
+          card.className = 'team-card';
+          card.innerHTML = `
+            <img src="${member.image}" alt="${member.name}">
+            <h3>${member.name}</h3>
+            <p>${member.role}</p>
+          `;
+          teamGrid.appendChild(card);
+        });
+      })
+      .catch(err => console.error('Error loading team data:', err));
+
+    // Interactive Counters
+    function animateCounter(id, target){
+      let count = 0;
+      const element = document.getElementById(id);
+      const increment = Math.ceil(target / 100);
+      const interval = setInterval(()=>{
+        count += increment;
+        if(count >= target) count = target;
+        element.textContent = count;
+        if(count === target) clearInterval(interval);
+      }, 20);
+    }
+
+    // Animate counters on load
+    animateCounter('donors', 1500);
+    animateCounter('bloodUnits', 1200);
+    animateCounter('livesSaved', 1000);
+  </script>
 </body>
 </html>
