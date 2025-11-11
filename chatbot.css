@@ -14,7 +14,7 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #d62828 0%, #b91c1c 100%);
   border: none;
-  color: white;
+  color: white !important;
   font-size: 24px;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(214, 40, 40, 0.4);
@@ -22,11 +22,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+#chatbot-toggle i {
+  color: white !important;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(214, 40, 40, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(214, 40, 40, 0.7);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
 }
 
 #chatbot-toggle:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 16px rgba(214, 40, 40, 0.5);
+  animation: none;
+}
+
+#chatbot-toggle:hover i {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
 }
 
 #chatbot-toggle:active {
@@ -75,25 +110,42 @@
   gap: 10px;
   font-weight: 600;
   font-size: 16px;
+  color: white;
 }
 
 .chatbot-title i {
   font-size: 20px;
+  color: white !important;
+  animation: robotBlink 3s ease-in-out infinite;
+}
+
+@keyframes robotBlink {
+  0%, 90%, 100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.5;
+  }
 }
 
 #chatbot-close {
   background: transparent;
   border: none;
-  color: white;
+  color: white !important;
   font-size: 20px;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
-  transition: background 0.2s;
+  transition: all 0.2s;
+}
+
+#chatbot-close i {
+  color: white !important;
 }
 
 #chatbot-close:hover {
   background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
 }
 
 /* Messages Area */
