@@ -59,8 +59,6 @@ if (btn && menu) {
 // Add this code block into your donation.js file
 
 document.addEventListener("DOMContentLoaded", function () {
-    // ... (your existing donateForm submit logic) ...
-
     const findCenterDiv = document.getElementById("center");
     
     // Check if the element exists before adding the listener
@@ -72,104 +70,104 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "find-center.html";
         });
     }
+
     // --- Host a Drive modal logic ---
     const driveBtn = document.getElementById('drive');
     const modal = document.getElementById('drive-modal');
     const toast = document.getElementById('toast');
     const drivesList = document.getElementById('drives-list');
 
-    // ... auth removed: original header links / sign.html and login.html are used instead
-
-    // --- Simple client-side auth ---
-    const AUTH_DELAY_MS = 2500; // show login after 2.5s if not logged in
-    const authModal = document.getElementById('auth-modal');
-    const authForm = document.getElementById('auth-form');
-    const authTitle = document.getElementById('auth-title');
-    const authModeNote = document.getElementById('auth-mode-note');
-    const switchToSignup = document.getElementById('switch-to-signup');
-    const authSubmit = document.getElementById('auth-submit');
-
-    function getUsers(){
-        try{return JSON.parse(localStorage.getItem('users')||'[]');}catch(e){return []}
-    }
-    function saveUsers(u){ localStorage.setItem('users', JSON.stringify(u)); }
-    function setCurrentUser(email){ localStorage.setItem('currentUser', email); }
-    function getCurrentUser(){ return localStorage.getItem('currentUser'); }
-    function clearCurrentUser(){ localStorage.removeItem('currentUser'); }
-
-    function showAuthModal(mode='login'){
-        if(!authModal) return;
-        authModal.setAttribute('aria-hidden','false');
-        authTitle.textContent = mode === 'login' ? 'Login' : 'Sign Up';
-        authModeNote.innerHTML = mode === 'login' ? `Don't have an account? <a href="#" id="switch-to-signup">Sign up</a>` : `Already have account? <a href="#" id="switch-to-signup">Login</a>`;
-        authSubmit.textContent = mode === 'login' ? 'Login' : 'Sign Up';
-        // rebind switch link
-        const sw = document.getElementById('switch-to-signup');
-        if(sw){ sw.addEventListener('click', (e)=>{ e.preventDefault(); showAuthModal(mode==='login' ? 'signup' : 'login'); }); }
+    function showModal(){
+        if(!modal) return;
+        modal.setAttribute('aria-hidden','false');
     }
 
-    function closeAuthModal(){ if(!authModal) return; authModal.setAttribute('aria-hidden','true'); }
-
-    // Add logout button to header when logged in
-    function injectAuthUI(){
-        const authArea = document.querySelector('.auth');
-        if(!authArea) return;
-        const current = getCurrentUser();
-        authArea.innerHTML = '';
-        if(current){
-            const el = document.createElement('div');
-            el.style.display = 'flex';
-            el.style.gap = '8px';
-            el.innerHTML = `<span style="align-self:center;color:#333">${escapeHtml(current)}</span><button id="logout-btn" class="btn btn-outline">Logout</button>`;
-            authArea.appendChild(el);
-            const logoutBtn = document.getElementById('logout-btn');
-            if(logoutBtn) logoutBtn.addEventListener('click', ()=>{ clearCurrentUser(); injectAuthUI(); showAuthModal('login'); });
-        } else {
-            // show login and signup buttons
-            const loginBtn = document.createElement('button'); loginBtn.className='login'; loginBtn.innerHTML='<a href="#">Login</a>';
-            const signupBtn = document.createElement('button'); signupBtn.className='signup'; signupBtn.innerHTML='<a href="sign.html">Sign Up</a>';
-            authArea.appendChild(loginBtn);
-            authArea.appendChild(signupBtn);
-            // attach handlers
-            loginBtn.addEventListener('click',(e)=>{ e.preventDefault(); showAuthModal('login'); });
-            // Sign up should open the separate sign.html page
-            signupBtn.addEventListener('click',(e)=>{ /* let default anchor behavior navigate */ });
-        }
+    function closeModal(){
+        if(!modal) return;
+        modal.setAttribute('aria-hidden','true');
     }
 
-    // auth form submit
-    if(authForm){
-        authForm.addEventListener('submit',(e)=>{
-            e.preventDefault();
-            const fd = new FormData(authForm);
-            const email = (fd.get('email')||'').toString().trim().toLowerCase();
-            const password = (fd.get('password')||'').toString();
-            if(!email || !password){ showToast('Provide email and password'); return; }
-
-            const mode = authSubmit.textContent.toLowerCase().includes('sign') ? 'signup' : 'login';
-            const users = getUsers();
-            if(mode === 'signup'){
-                if(users.find(u=>u.email===email)){ showToast('Account already exists'); return; }
-                users.push({ email, password });
-                saveUsers(users);
-                setCurrentUser(email);
-                injectAuthUI();
-                closeAuthModal();
-                showToast('Signed up');
-            } else {
-                const user = users.find(u=>u.email===email && u.password===password);
-                if(user){ setCurrentUser(email); injectAuthUI(); closeAuthModal(); showToast('Logged in'); }
-                else showToast('Invalid credentials');
-            }
-            authForm.reset();
+    if(driveBtn){
+        driveBtn.addEventListener('click', function(){
+            showModal();
         });
     }
 
-    // show auth modal if no user after delay
-    setTimeout(()=>{
-        if(!getCurrentUser()) showAuthModal('login');
-    }, AUTH_DELAY_MS);
+    // close buttons / overlay
+    document.querySelectorAll('[data-close]').forEach(btn=>{
+        btn.addEventListener('click', closeModal);
+    });
 
-    // inject initial auth UI
-    injectAuthUI();
+    // form submit
+    const hostForm = document.getElementById('host-drive-form');
+
+    function showToast(msg='Saved'){ 
+        if(!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(()=>toast.classList.remove('show'),3000);
+    }
+
+    function createDriveCard(data){
+        const card = document.createElement('div');
+        card.className = 'drive-card';
+        card.innerHTML = `
+            <div class="pin"><i class="fa-solid fa-location-dot"></i></div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="display:flex;gap:10px;align-items:center">
+                    <span class="tag">Blood Drive</span>
+                    <h3 style="margin:0">${escapeHtml(data.orgName || 'Unnamed Drive')}</h3>
+                </div>
+                <div style="color:#777"><i class="fa-regular fa-location-dot"></i></div>
+            </div>
+            <p style="color:#666;margin:8px 0;font-size:14px">${escapeHtml(data.address || '')}</p>
+            <div class="drive-meta">${escapeHtml(data.city || '')} • ${escapeHtml(data.date || '')} ${data.time ? ' • ' + escapeHtml(data.time) : ''}</div>
+            <div class="drive-row"><i class="fa-regular fa-user"></i> Expected: ${escapeHtml(data.expected || 'N/A')}</div>
+            <hr style="margin:10px 0;border-top:1px solid #f0f0f0">
+            <div style="font-size:13px;color:#555"><i class="fa-solid fa-envelope"></i> ${escapeHtml(data.email || '')}</div>
+            <div style="font-size:13px;color:#555;margin-top:6px"><i class="fa-solid fa-phone"></i> ${escapeHtml(data.phone || '')}</div>
+        `;
+        return card;
+    }
+
+    function escapeHtml(str){
+        return String(str).replace(/[&<>"]+/g, function(s){
+            return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[s];
+        });
+    }
+
+    function loadDrives(){
+        let drives = [];
+        try{ drives = JSON.parse(localStorage.getItem('drives')||'[]'); }catch(e){ drives = []; }
+        drives.forEach(d=>{
+            drivesList && drivesList.appendChild(createDriveCard(d));
+        });
+    }
+
+    function saveDrive(drive){
+        let drives = [];
+        try{ drives = JSON.parse(localStorage.getItem('drives')||'[]'); }catch(e){ drives = []; }
+        drives.unshift(drive);
+        localStorage.setItem('drives', JSON.stringify(drives));
+    }
+
+    if(hostForm){
+        hostForm.addEventListener('submit', function(e){
+            e.preventDefault();
+            const fd = new FormData(hostForm);
+            const data = Object.fromEntries(fd.entries());
+            // append card
+            const card = createDriveCard(data);
+            drivesList && drivesList.insertBefore(card, drivesList.firstChild);
+            // persist
+            saveDrive(data);
+            // toast and close
+            showToast('Drive submitted');
+            closeModal();
+            hostForm.reset();
+        });
+    }
+
+    // initial load
+    loadDrives();
 });
