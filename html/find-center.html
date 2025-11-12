@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Donation Center - SaveLife</title>
+  
+  <link rel="stylesheet" href="../css/donation.css"> 
+  <link rel="stylesheet" href="../css/find-center.css">    
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="icon" href="favicon1.ico">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logoimg">
+        <i class="fa-solid fa-heart"></i>
+      </span>
+      <span class="logotxt">SaveLife</span>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="donation.html">Home</a></li>
+            <li><a href="why-donate.html">Why Donate</a></li>
+            <li><a href="find-center.html" class="active">Find a Center</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="FAQs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="auth">
+        <button class="login"><a href="login.html" target="_blank">Login</a></button>
+        <button class="signup"><a href="sign.html" target="_blank">Sign Up</a></button>
+    </div>
+    <i class="fa-solid fa-bars" id="toggle-bnt"></i>
+  </nav>
+
+  <main class="center-search">
+    <div class="search-header">
+        <h1>Find Blood Donation Centers Near You</h1>
+        <p>Enter your preferences to search for real-time blood stock availability at nearby centers.</p>
+    </div>
+
+    <form id="centerSearchForm" class="search-form">
+        
+        <div class="form-group distance-group">
+            <label for="distance"><i class="fa-solid fa-route"></i> Search Radius (km)</label>
+            <input type="number" id="distance" value="10" min="1" max="100" required>
+        </div>
+
+        <div class="form-group blood-group-select">
+            <label for="bloodGroup"><i class="fa-solid fa-droplet"></i> Blood Group (Optional)</label>
+            <select id="bloodGroup">
+                <option value="">All Groups</option>
+                <option value="A+Ve">A+</option>
+                <option value="A-Ve">A-</option>
+                <option value="B+Ve">B+</option>
+                <option value="B-Ve">B-</option>
+                <option value="AB+Ve">AB+</option>
+                <option value="AB-Ve">AB-</option>
+                <option value="O+Ve">O+</option>
+                <option value="O-Ve">O-</option>
+            </select>
+        </div>
+        
+        <input type="hidden" id="latitude" name="Lat">
+        <input type="hidden" id="longitude" name="Long">
+
+        <button type="submit" class="submit-btn" id="searchButton" disabled>
+            <i class="fa-solid fa-magnifying-glass"></i> Search Centers
+        </button>
+        
+        <p class="geolocation-status loading" id="statusMessage">
+            <i class="fa-solid fa-location-crosshairs"></i> Getting your location...
+        </p>
+    </form>
+
+    <section class="results-section">
+        <h2 id="resultsTitle">Available Blood Banks</h2>
+        <div id="resultsContainer" class="results-container">
+            <p class="initial-message">Please wait for location to load, then search for nearby donation centers.</p>
+        </div>
+    </section>
+  </main>
+
+  <script src="find-center.js"></script>
+  <script src="donation.js"></script> 
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | SaveLife</title>
+  <link rel="stylesheet" href="../css/donation.css">
+  <link rel="stylesheet" href="../css/Contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logoimg">
+        <i class="fa-solid fa-heart"></i>
+      </span>
+      <span class="logotxt">SaveLife</span>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="donation.html">Home</a></li>
+        <li><a href="why-donate.html">Why Donate</a></li>
+        <li><a href="drive.html">Find a Drive</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+        <li><a href="Contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+    <div class="auth">
+        <button class="login" onclick="window.location.href='login.html'">Login</button>
+        <button class="signup" onclick="window.location.href='sign.html'">Sign Up</button>
+        <i class="fas fa-bars" id="toggle-bnt"></i>
+      </div>      
+  </nav>
+
+  <!-- Contact Form Section -->
+  <main class="contact-page">
+    <section class="contact-container">
+      <h1>Contact Us</h1>
+      <p>Have a question or want to know more? Send us a message below.</p>
+
+      <form id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" placeholder="Your message..."></textarea>
+
+        <button type="submit">Send</button>
+        <p id="msg"></p>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2025 SaveLife. All Rights Reserved.</p>
+  </footer>
+
+  <script src="donation.js"></script>
+  <script src="Contact.js"></script>
+</body>
+</html>

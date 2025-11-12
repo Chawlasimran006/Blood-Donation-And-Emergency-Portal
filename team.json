@@ -3,21 +3,21 @@
   {
     "name": "Ritika Jindal",
     "role": "Team Member",
-    "image": "ritika.jpeg"
+    "image": "../ritika.jpeg"
   },
   {
     "name": "Simran",
     "role": "Team Member",
-    "image": "simran.jpeg"
+    "image": "../simran.jpeg"
   },
   {
     "name": "Rohan Bisht",
     "role": "Team Member",
-    "image": "rohan.jpeg"
+    "image": "../rohan.jpeg"
   },
   {
     "name": "Reyan Ansari",
     "role": "Team Member",
-    "image": "reyan.jpeg"
+    "image": "../reyan.jpeg"
   }
 ]

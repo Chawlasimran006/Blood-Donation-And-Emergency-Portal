@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Donate - SaveLife</title>
+  <link rel="stylesheet" href="../css/donation.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="icon" href="../favicon1.ico">
+
+  <style>
+    /* --- Footer stick styling --- */
+    .footer {
+      position: fixed;
+      /* Keeps footer always visible at bottom */
+      bottom: 0;
+      /* Stick to bottom */
+      left: 0;
+      width: 100%;
+      /* Full width */
+      background-color: #d32f2f;
+      /* Red theme color (same as navbar) */
+      color: #fff;
+      /* White text */
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      /* Keeps it above content */
+    }
+
+    /* Prevent footer overlap with page content */
+    body {
+      margin: 0;
+      padding-bottom: 60px;
+      /* Equal or greater than footer height */
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logoimg">
+        <i class="fa-solid fa-heart"></i>
+      </span>
+      <span class="logotxt">SaveLife</span>
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="donation.html">Home</a></li>
+        <li><a href="why-donate.html" class="active">Why Donate</a></li>
+        <li><a href="drive.html">Find a Drive</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="auth">
+      <button class="login" onclick="window.location.href='login.html'">Login</button>
+      <button class="signup" onclick="window.location.href='sign.html'">Sign Up</button>
+      <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <main>
+    <section class="why-donate">
+      <div class="why-header">
+        <h1>Why Donate Blood?</h1>
+        <p>Your one donation can save up to 3 lives. Here's why it matters:</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          <h3>Save Lives</h3>
+          <p>Every 2 seconds someone needs blood. Your donation makes a difference instantly.</p>
+        </div>
+
+        <div class="why-card">
+          <i class="fa-solid fa-users"></i>
+          <h3>Support Community</h3>
+          <p>Donating blood helps hospitals maintain a steady supply for emergencies and surgeries.</p>
+        </div>
+
+        <div class="why-card">
+          <i class="fa-solid fa-droplet"></i>
+          <h3>Rare Blood Types</h3>
+          <p>People with rare blood groups depend on voluntary donors like you to survive.</p>
+        </div>
+
+        <div class="why-card">
+          <i class="fa-solid fa-heart-pulse"></i>
+          <h3>Health Benefits</h3>
+          <p>Regular donation improves blood circulation and can even lower risk of heart disease.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 SaveLife. All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/donation.js"></script>
+</body>
+
+</html>
