@@ -38,54 +38,74 @@
   </nav>
 
   <main class="center-search">
-    <div class="search-header">
-        <h1>Find Blood Donation Centers Near You</h1>
-        <p>Enter your preferences to search for real-time blood stock availability at nearby centers.</p>
+    <!-- Hero Section -->
+    <div class="search-hero">
+      <div class="hero-content">
+        <div class="hero-icon">
+          <i class="fa-solid fa-hospital"></i>
+        </div>
+        <h1>Find Blood Donation Centers</h1>
+        <p>Locate nearby blood banks with real-time stock availability</p>
+      </div>
     </div>
 
-    <form id="centerSearchForm" class="search-form">
-        
-        <div class="form-group distance-group">
-            <label for="distance"><i class="fa-solid fa-route"></i> Search Radius (km)</label>
-            <input type="number" id="distance" value="10" min="1" max="100" required>
-        </div>
+    <!-- Search Card -->
+    <div class="search-card">
+      <form id="centerSearchForm" class="search-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="distance">
+              <i class="fa-solid fa-route"></i>
+              <span>Search Radius</span>
+            </label>
+            <div class="input-wrapper">
+              <input type="number" id="distance" value="10" min="1" max="100" required>
+              <span class="unit">km</span>
+            </div>
+          </div>
 
-        <div class="form-group blood-group-select">
-            <label for="bloodGroup"><i class="fa-solid fa-droplet"></i> Blood Group (Optional)</label>
-            <select id="bloodGroup">
-                <option value="">All Groups</option>
-                <option value="A+Ve">A+</option>
-                <option value="A-Ve">A-</option>
-                <option value="B+Ve">B+</option>
-                <option value="B-Ve">B-</option>
-                <option value="AB+Ve">AB+</option>
-                <option value="AB-Ve">AB-</option>
-                <option value="O+Ve">O+</option>
-                <option value="O-Ve">O-</option>
+          <div class="form-group">
+            <label for="centerType">
+              <i class="fa-solid fa-hospital"></i>
+              <span>Center Type</span>
+            </label>
+            <select id="centerType">
+              <option value="">All Types</option>
+              <option value="Blood Bank">Blood Bank</option>
+              <option value="Blood Donation Center">Blood Donation Center</option>
+              <option value="Hospital">Hospital</option>
             </select>
+          </div>
+
+          <div class="form-group">
+            <label style="opacity: 0; visibility: hidden;">Search</label>
+            <button type="submit" class="submit-btn" id="searchButton">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Search Centers</span>
+            </button>
+          </div>
         </div>
         
         <input type="hidden" id="latitude" name="Lat">
         <input type="hidden" id="longitude" name="Long">
+      </form>
+    </div>
 
-        <button type="submit" class="submit-btn" id="searchButton" disabled>
-            <i class="fa-solid fa-magnifying-glass"></i> Search Centers
-        </button>
-        
-        <p class="geolocation-status loading" id="statusMessage">
-            <i class="fa-solid fa-location-crosshairs"></i> Getting your location...
-        </p>
-    </form>
-
-    <section class="results-section">
+    <!-- Results Section - Hidden by default -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+      <div class="results-header">
         <h2 id="resultsTitle">Available Blood Banks</h2>
-        <div id="resultsContainer" class="results-container">
-            <p class="initial-message">Please wait for location to load, then search for nearby donation centers.</p>
-        </div>
+        <p class="results-subtitle">Real-time blood stock information from e-Rakt Kosh</p>
+      </div>
+      <div id="resultsContainer" class="results-container">
+      </div>
     </section>
   </main>
 
-  <script src="find-center.js"></script>
-  <script src="donation.js"></script> 
+  <!-- Google Maps JavaScript API with Places Library -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUaCSzEogPhRKeHDEqmx6UMS2iHzXnvrY&libraries=places&callback=initMap" async defer></script>
+  
+  <script src="../js/find-center.js"></script>
+  <script src="../js/donation.js"></script> 
 </body>
 </html>
