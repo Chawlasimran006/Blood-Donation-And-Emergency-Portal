@@ -111,7 +111,7 @@
                 toggle.innerHTML = typ === 'text' ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
             });
 
-            document.getElementById('signupForm').addEventListener('submit', function(e){
+            document.getElementById('signupForm').addEventListener('submit', async function(e){
                 e.preventDefault();
                 const fullname = document.getElementById('fullname').value.trim();
                 const email = document.getElementById('email').value.trim();
@@ -136,12 +136,41 @@
                 btn.disabled = true;
                 btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px"></i>Creating...';
 
-                // Simulate server call
-                setTimeout(()=>{
-                    // For demo we just redirect to login
-                    alert('Account created successfully. Redirecting to login.');
-                    window.location.href = 'login.html';
-                }, 1200);
+                // Call backend API
+                try {
+                    const response = await fetch('http://localhost:5000/api/auth/signup', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            name: fullname,
+                            email: email,
+                            password: password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Save token and user info
+                        localStorage.setItem('authToken', data.token);
+                        localStorage.setItem('userName', data.user.name);
+                        localStorage.setItem('userEmail', data.user.email);
+                        
+                        alert('Account created successfully! Redirecting to home page.');
+                        window.location.href = 'donation.html';
+                    } else {
+                        alert(data.message || 'Signup failed. Please try again.');
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="fa-solid fa-user-plus" style="margin-right:8px"></i> Create account';
+                    }
+                } catch (error) {
+                    console.error('Signup error:', error);
+                    alert('Connection error. Make sure the server is running.');
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa-solid fa-user-plus" style="margin-right:8px"></i> Create account';
+                }
             });
         </script>
     </body>

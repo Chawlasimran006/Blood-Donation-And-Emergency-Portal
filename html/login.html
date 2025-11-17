@@ -78,13 +78,54 @@
                 toggle.innerHTML = typ === 'text' ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
             });
 
-            document.getElementById('loginForm').addEventListener('submit', function(e){
+            document.getElementById('loginForm').addEventListener('submit', async function(e){
                 e.preventDefault();
                 const email = document.getElementById('email').value.trim();
                 const password = document.getElementById('password').value;
-                if(!email || !password){ alert('Please enter email and password'); return }
-                const btn = document.getElementById('submitBtn'); btn.disabled=true; btn.innerHTML='<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px"></i>Signing in...';
-                setTimeout(()=>{ alert('Signed in - demo'); window.location.href='donation.html'; },1200);
+                
+                if(!email || !password){ 
+                    alert('Please enter email and password'); 
+                    return;
+                }
+                
+                const btn = document.getElementById('submitBtn'); 
+                btn.disabled = true; 
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="margin-right:8px"></i>Signing in...';
+                
+                // Call backend API
+                try {
+                    const response = await fetch('http://localhost:5000/api/auth/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            password: password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Save token and user info
+                        localStorage.setItem('authToken', data.token);
+                        localStorage.setItem('userName', data.user.name);
+                        localStorage.setItem('userEmail', data.user.email);
+                        
+                        alert('Login successful! Redirecting...');
+                        window.location.href = 'donation.html';
+                    } else {
+                        alert(data.message || 'Login failed. Please check your credentials.');
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="fa-solid fa-sign-in-alt" style="margin-right:8px"></i>Sign in';
+                    }
+                } catch (error) {
+                    console.error('Login error:', error);
+                    alert('Connection error. Make sure the server is running.');
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa-solid fa-sign-in-alt" style="margin-right:8px"></i>Sign in';
+                }
             });
 
             function showForgotPassword(){ alert('Password reset flow placeholder'); }
