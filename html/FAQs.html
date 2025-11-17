@@ -12,9 +12,11 @@
   <link rel="stylesheet" href="../css/donation.css">
   <link rel="stylesheet" href="../css/faqs.css">
 
-  <link rel="icon" href="favicon1.ico">  
+  <link rel="icon" href="favicon1.ico">
+
 </head>
 <body>
+
   <!-- Navbar -->
   <header>
     <nav class="navbar">
@@ -28,103 +30,169 @@
           <li><a href="why-donate.html">Why Donate</a></li>
           <li><a href="drive.html">Find a Drive</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="FAQs.html" class="active">FAQs</a></li>
+          <li><a href="faqs.html" class="active">FAQs</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="auth">
-      <button class="login"><a href="login.html" target="_blank">Login</a></button>
-			<button class="signup"><a href="sign.html" target="_blank">Sign Up</a></button>
+        <button class="login"><a href="login.html" target="_blank">Login</a></button>
+        <button class="signup"><a href="sign.html" target="_blank">Sign Up</a></button>
         <i class="fas fa-bars" style="cursor:pointer;" id="toggle-bnt"></i>
       </div>
     </nav>
   </header>
-
+  
   <!-- FAQs Section -->
   <section class="faqs-section">
     <h2>Frequently Asked Questions</h2>
     <p class="faq-intro">Here are some common questions and answers about blood donation and SaveLife.</p>
 
     <div class="faq-container">
+
+      <!-- FAQ 1 -->
       <div class="faq-item">
         <button class="faq-question">
-          Who can donate blood? 
+          Who can donate blood
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>Anyone between the ages of 18–65, weighing at least 50 kg, and in good health can donate blood. Specific eligibility may vary depending on medical conditions.</p>
+          <p>
+            <i class="fa-solid fa-volume-high speak-icon" onclick="speakText(this)"></i>
+            Anyone between the ages of 18–65, weighing at least 50 kg, and in good health can donate blood. Specific eligibility may vary depending on medical conditions.
+          </p>
         </div>
       </div>
 
+      <!-- FAQ 2 -->
       <div class="faq-item">
         <button class="faq-question">
-          How often can I donate blood? 
+          How often can I donate blood
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>You can donate whole blood every 3 months (90 days). Platelet and plasma donations may have shorter intervals.</p>
+          <p>
+            <i class="fa-solid fa-volume-high speak-icon" onclick="speakText(this)"></i>
+            You can donate whole blood every 3 months (90 days). Platelet and plasma donations may have shorter intervals.
+          </p>
         </div>
       </div>
 
+      <!-- FAQ 3 -->
       <div class="faq-item">
         <button class="faq-question">
-          Is blood donation safe? 
+          Is blood donation safe
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>Yes, blood donation is completely safe. A new sterile needle is used each time, and donors are carefully screened before donation.</p>
+          <p>
+            <i class="fa-solid fa-volume-high speak-icon" onclick="speakText(this)"></i>
+            Yes, blood donation is completely safe. A new sterile needle is used each time, and donors are carefully screened before donation.
+          </p>
         </div>
       </div>
 
+      <!-- FAQ 4 -->
       <div class="faq-item">
         <button class="faq-question">
-          What should I do before donating? 
+          What should I do before donating
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>Eat a healthy meal, drink plenty of water, and avoid alcohol before donating. Carry a valid ID when visiting the donation center.</p>
+          <p>
+            <i class="fa-solid fa-volume-high speak-icon" onclick="speakText(this)"></i>
+            Eat a healthy meal, drink plenty of water and avoid alcohol before donating. Carry a valid ID when visiting the donation center.
+          </p>
         </div>
       </div>
 
+      <!-- FAQ 5 -->
       <div class="faq-item">
         <button class="faq-question">
-          What happens to my blood after donation? 
+          What happens to my blood after donation
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>Your blood is tested, processed, and stored. It is then distributed to hospitals and patients in need, ensuring it reaches someone who requires it urgently.</p>
+          <p>
+            <i class="fa-solid fa-volume-high speak-icon" onclick="speakText(this)"></i>
+            Your blood is tested, processed, and stored. It is then distributed to hospitals and patients in need, ensuring it reaches someone who requires it urgently.
+          </p>
         </div>
       </div>
+
     </div>
+
+    <!-- ⭐ FEEDBACK SECTION (NO CSS HERE) ⭐ -->
+    <div class="feedback-section">
+      <h3>Was this page helpful?</h3>
+
+      <div class="feedback-buttons">
+        <button class="fb-btn helpful" id="fb-yes">
+          <i class="fa-solid fa-thumbs-up"></i> Helpful
+        </button>
+        <button class="fb-btn not-helpful" id="fb-no">
+          <i class="fa-solid fa-thumbs-down"></i> Not Helpful
+        </button>
+      </div>
+
+      <p class="feedback-msg" id="feedback-msg"></p>
+    </div>
+
   </section>
 
   <footer class="footer">
     <p>© 2025 SaveLife. All Rights Reserved.</p>
   </footer>
 
-  <!-- JS for Toggle -->
+  <!-- JS -->
   <script>
+    /* FAQ Toggle */
     const faqButtons = document.querySelectorAll(".faq-question");
 
     faqButtons.forEach(btn => {
       btn.addEventListener("click", () => {
         const answer = btn.nextElementSibling;
 
-        // Toggle active class
         btn.classList.toggle("active");
 
-        // Toggle max-height
         if (answer.style.maxHeight) {
           answer.style.maxHeight = null;
+          answer.classList.remove("open");
         } else {
           answer.style.maxHeight = answer.scrollHeight + "px";
+          answer.classList.add("open");
         }
 
-        // Rotate icon
         const icon = btn.querySelector("i");
         icon.classList.toggle("fa-rotate-180");
       });
     });
+
+    /* 🔊 Text-to-Speech */
+    function speakText(icon) {
+      const text = icon.parentElement.innerText.trim();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.rate = 1;
+      utter.pitch = 1;
+      utter.volume = 1;
+      speechSynthesis.cancel();
+      speechSynthesis.speak(utter);
+    }
+
+    /* ⭐ FEEDBACK LOGIC ⭐ */
+    const yesBtn = document.getElementById("fb-yes");
+    const noBtn = document.getElementById("fb-no");
+    const msg = document.getElementById("feedback-msg");
+
+    yesBtn.addEventListener("click", () => {
+      msg.style.display = "block";
+      msg.innerHTML = "Thanks for your feedback! ❤️";
+    });
+
+    noBtn.addEventListener("click", () => {
+      msg.style.display = "block";
+      msg.innerHTML = "We'll work to improve this page! 🙂";
+    });
   </script>
+
 </body>
 </html>
