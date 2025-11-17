@@ -550,6 +550,41 @@
 }
 
 /* Loading State */
+/* Loading State */
+.location-status {
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 1px solid #ffb74d;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: #e65100;
+    font-weight: 500;
+}
+
+.location-status.success {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-color: #66bb6a;
+    color: #2e7d32;
+}
+
+.location-status.error {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-color: #ef5350;
+    color: #c62828;
+}
+
+.location-status.hidden {
+    display: none;
+}
+
+.location-status i {
+    font-size: 1rem;
+}
+
 .loading-message {
     grid-column: 1 / -1;
     text-align: center;
