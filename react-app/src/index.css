@@ -1,0 +1,56 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #ffffff;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Link Styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Button Reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Input Reset */
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
