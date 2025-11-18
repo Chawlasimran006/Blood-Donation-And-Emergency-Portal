@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import '../styles/Pages.css'
 
 function About() {
+  const navigate = useNavigate()
   return (
     <>
       {/* Navbar */}
@@ -22,14 +24,14 @@ function About() {
           </ul>
         </div>
         <div className="auth">
-          <button className="login"><Link to="/login">Login</Link></button>
-          <button className="signup"><Link to="/signup">Sign Up</Link></button>
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/signup" className="signup">Sign Up</Link>
           <i className="fas fa-bars" style={{ cursor: 'pointer' }} id="toggle-bnt"></i>
         </div>
       </nav>
 
       <div className="page-container">
-      <div className="page-hero">
+      <div className="page-hero about-us">
         <h1>About SaveLife</h1>
         <p>Connecting donors with those in need</p>
       </div>

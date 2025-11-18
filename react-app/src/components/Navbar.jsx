@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/Navbar.css'
 
 function Navbar({ user, onLogout }) {
+  const navigate = useNavigate()
+
   return (
     <nav className="navbar">
       <div className="logo">
@@ -31,12 +33,12 @@ function Navbar({ user, onLogout }) {
           </>
         ) : (
           <>
-            <button className="login">
-              <Link to="/login">Login</Link>
-            </button>
-            <button className="signup">
-              <Link to="/signup">Sign Up</Link>
-            </button>
+            <Link to="/login" className="login">
+              Login
+            </Link>
+            <Link to="/signup" className="signup">
+              Sign Up
+            </Link>
           </>
         )}
       </div>

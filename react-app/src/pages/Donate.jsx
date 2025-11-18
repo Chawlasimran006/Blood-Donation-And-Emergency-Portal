@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/Donate.css'
+import '../styles/Pages.css'
 
 function Donate() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -128,8 +130,8 @@ function Donate() {
           </ul>
         </div>
         <div className="auth">
-          <button className="login"><Link to="/login">Login</Link></button>
-          <button className="signup"><Link to="/signup">Sign Up</Link></button>
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/signup" className="signup">Sign Up</Link>
           <i className="fas fa-bars" style={{ cursor: 'pointer' }} id="toggle-bnt"></i>
         </div>
       </nav>

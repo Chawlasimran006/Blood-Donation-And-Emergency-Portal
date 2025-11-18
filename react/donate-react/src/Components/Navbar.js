@@ -14,18 +14,18 @@ const Navbar = () => {
 
       <div className="menu">
         <ul>
-          <li><a href="donation.html">Home</a></li>
-          <li><a href="why-donate.html">Why Donate</a></li>
-          <li><a href="drive.html">Find a Drive</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="FAQs.html">FAQs</a></li>
-          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/why-donate">Why Donate</a></li>
+          <li><a href="/donate">Find a Drive</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/faqs">FAQs</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
 
       <div className="auth">
-        <button className="login" onClick={() => window.location.href='login.html'}>Login</button>
-        <button className="signup" onClick={() => window.location.href='sign.html'}>Sign Up</button>
+  <button className="login" onClick={() => window.location.href='/login'}>Login</button>
+  <button className="signup" onClick={() => window.location.href='/signup'}>Sign Up</button>
         <FaBars style={{cursor:"pointer"}} id="toggle-bnt" />
       </div>
     </nav>

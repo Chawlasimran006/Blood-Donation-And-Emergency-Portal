@@ -1,9 +1,10 @@
 /* Chatbot Container - Fixed to bottom right */
 #chatbot-container {
   position: fixed;
+  /* keep the toggle above most content but below navbar */
   bottom: 20px;
   right: 20px;
-  z-index: 9999;
+  z-index: 15000;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -25,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: 15001; /* slightly above container but below navbar */
 }
 
 .chatbot-toggle i {
@@ -49,12 +50,14 @@
 /* Chatbot Window */
 .chatbot-window {
   position: fixed;
-  bottom: 90px;
+  /* ensure chatbot window stays above page content but below navbar */
+  bottom: var(--chatbot-bottom, 90px);
   right: 20px;
   width: 380px;
   max-width: calc(100vw - 40px);
-  height: 500px;
-  max-height: calc(100vh - 120px);
+  /* Ensure chat window doesn't collide with header */
+  height: min(500px, calc(100vh - var(--chatbot-bottom, 90px) - var(--header-height, 70px) - var(--chatbot-top-gap, 16px)));
+  max-height: calc(100vh - var(--chatbot-bottom, 90px) - var(--header-height, 70px) - var(--chatbot-top-gap, 16px));
   background: white;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
@@ -63,7 +66,7 @@
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: bottom right;
-  z-index: 9998;
+  z-index: 14999; /* below navbar */
 }
 
 .chatbot-window.chatbot-hidden {
@@ -377,11 +380,14 @@
     font-size: 24px;
   }
 
+  /* slightly increase bottom offset on small screens to keep away from mobile bottom bars */
+  :root { --chatbot-bottom: 90px; }
   .chatbot-window {
     width: calc(100vw - 30px);
-    height: calc(100vh - 100px);
-    bottom: 75px;
+    bottom: var(--chatbot-bottom, 75px);
     right: 15px;
+    height: min(calc(100vh - var(--chatbot-bottom, 75px) - var(--header-height, 70px) - var(--chatbot-top-gap, 12px)), calc(100vh - 100px));
+  max-height: calc(100vh - var(--chatbot-bottom, 75px) - var(--header-height, 70px) - var(--chatbot-top-gap, 12px));
   }
 
   .chatbot-messages {

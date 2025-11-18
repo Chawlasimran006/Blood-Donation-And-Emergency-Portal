@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import '../styles/Pages.css'
+import { Link, useNavigate } from 'react-router-dom'
+import '../styles/Contact.css'
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -11,9 +13,10 @@ function Contact() {
   const [msg, setMsg] = useState('')
   const [msgType, setMsgType] = useState('') // 'success' or 'error'
 
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault()
-
     const { name, email, message } = formData
 
     // Validation
@@ -67,14 +70,14 @@ function Contact() {
           </ul>
         </div>
         <div className="auth">
-          <button className="login"><Link to="/login">Login</Link></button>
-          <button className="signup"><Link to="/signup">Sign Up</Link></button>
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/signup" className="signup">Sign Up</Link>
           <i className="fas fa-bars" style={{ cursor: 'pointer' }} id="toggle-bnt"></i>
         </div>
       </nav>
 
       <div className="page-container">
-      <div className="page-hero">
+      <div className="page-hero contact-us">
         <h1>Contact Us</h1>
         <p>We're here to help and answer any questions</p>
       </div>

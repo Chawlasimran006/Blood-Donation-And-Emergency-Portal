@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Chatbot from './components/Chatbot'
@@ -11,6 +11,7 @@ import FAQs from './pages/FAQs'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import EligibilityQuiz from './pages/EligibilityQuiz'
 import authService from './services/authService'
 import './App.css'
 import './styles/Pages.css'
@@ -21,6 +22,10 @@ function App() {
 
   useEffect(() => {
     checkAuth()
+  // debug helper available from devtools: testNavigate('/login') -> will navigate to path
+  window.testNavigate = (path) => { window.location.href = path }
+  // debug: report the top element at a coordinate (x,y)
+  window.elementAt = (x = 50, y = 20) => document.elementFromPoint(x, y)
   }, [])
 
   const checkAuth = async () => {
@@ -56,6 +61,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+  <DebugBar />
         <Routes>
           <Route path="/" element={<Home user={user} onLogout={handleLogout} />} />
           <Route path="/why-donate" element={<WhyDonate user={user} onLogout={handleLogout} />} />
@@ -64,12 +70,34 @@ function App() {
           <Route path="/about" element={<About user={user} onLogout={handleLogout} />} />
           <Route path="/faqs" element={<FAQs user={user} onLogout={handleLogout} />} />
           <Route path="/contact" element={<Contact user={user} onLogout={handleLogout} />} />
-          <Route path="/login" element={!user ? <Login onLogin={handleLogin} /> : <Navigate to="/" />} />
-          <Route path="/signup" element={!user ? <Signup onLogin={handleLogin} /> : <Navigate to="/" />} />
+          <Route path="/eligibility-quiz" element={<EligibilityQuiz user={user} onLogout={handleLogout} />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/signup" element={<Signup onLogin={handleLogin} />} />
         </Routes>
         <Chatbot />
       </div>
     </BrowserRouter>
+  )
+}
+
+function DebugBar() {
+  const location = useLocation()
+  const [lastClicked, setLastClicked] = useState('(none)')
+
+  useEffect(() => {
+    const handler = (e) => {
+      const el = e.target
+      setLastClicked(el && el.className ? el.className : el.tagName)
+    }
+    document.addEventListener('click', handler)
+    return () => document.removeEventListener('click', handler)
+  }, [])
+
+  return (
+    <div style={{position: 'fixed', top: 8, right: 8, zIndex: 99999, background: 'rgba(0,0,0,0.7)', color: 'white', padding: '6px 10px', borderRadius: 6, fontSize: 12}}>
+      <div><strong>Path:</strong> {location.pathname}</div>
+      <div><strong>Last Click:</strong> {lastClicked}</div>
+    </div>
   )
 }
 

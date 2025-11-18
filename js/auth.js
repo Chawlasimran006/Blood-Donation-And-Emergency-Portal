@@ -11,9 +11,9 @@ async function checkAuth() {
     const token = localStorage.getItem('authToken');
     
     if (!token) {
-        // No token, redirect to login
-        if (!window.location.pathname.includes('login.html') && !window.location.pathname.includes('sign.html')) {
-            window.location.href = '/html/login.html';
+        // No token, redirect to React login route
+        if (!window.location.pathname.includes('/login') && !window.location.pathname.includes('/signup')) {
+            window.location.href = '/login';
         }
         return false;
     }
@@ -35,8 +35,8 @@ async function checkAuth() {
             // Token is invalid
             localStorage.removeItem('authToken');
             localStorage.removeItem('userName');
-            if (!window.location.pathname.includes('login.html') && !window.location.pathname.includes('sign.html')) {
-                window.location.href = '/html/login.html';
+            if (!window.location.pathname.includes('/login') && !window.location.pathname.includes('/signup')) {
+                window.location.href = '/login';
             }
             return false;
         }
@@ -65,8 +65,8 @@ async function login(email, password) {
             localStorage.setItem('userName', data.user.name);
             localStorage.setItem('userEmail', data.user.email);
             
-            // Redirect to home
-            window.location.href = '/html/donation.html';
+            // Redirect to React donation route
+            window.location.href = '/donate';
         } else {
             alert(data.message || 'Login failed');
         }
@@ -95,8 +95,8 @@ async function signup(name, email, password) {
             localStorage.setItem('userName', data.user.name);
             localStorage.setItem('userEmail', data.user.email);
             
-            // Redirect to home
-            window.location.href = '/html/donation.html';
+            // Redirect to React donate route
+            window.location.href = '/donate';
         } else {
             alert(data.message || 'Signup failed');
         }
@@ -111,7 +111,7 @@ function logout() {
     localStorage.removeItem('authToken');
     localStorage.removeItem('userName');
     localStorage.removeItem('userEmail');
-    window.location.href = '/html/login.html';
+    window.location.href = '/login';
 }
 
 // Update UI with user info

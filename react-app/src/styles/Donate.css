@@ -80,6 +80,9 @@ body {
 /* Auth Buttons */
 .auth{
     margin-right:20px;
+    background: transparent;
+    position: relative;
+    z-index: 100;
 }
 .login{
     padding: 12px 20px;
@@ -100,6 +103,22 @@ body {
     background-color:rgb(181,28,28) ;
     color:rgb(255,255,255);
     cursor: pointer;
+    box-shadow: none !important;
+    outline: none !important;
+    position: relative;
+    z-index: 101;
+}
+.signup::before,
+.signup::after,
+.signup *::before,
+.signup *::after {
+    display: none !important;
+    content: none !important;
+}
+.auth::before,
+.auth::after {
+    display: none !important;
+    content: none !important;
 }
 .signup a{
     text-decoration: none;

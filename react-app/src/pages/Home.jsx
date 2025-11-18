@@ -21,6 +21,7 @@ function Home() {
   })
 
   useEffect(() => {
+    // Load drives from localStorage
     // Mobile menu toggle
     const toggleBtn = document.getElementById('toggle-bnt')
     const menu = document.querySelector('.menu')
@@ -31,11 +32,30 @@ function Home() {
 
     if (toggleBtn && menu) {
       toggleBtn.addEventListener('click', handleToggle)
-      return () => toggleBtn.removeEventListener('click', handleToggle)
     }
 
-    // Load drives from localStorage
+    // Simple tooltip attribute removal (no DOM element removal)
+    const removeTooltips = () => {
+      const signupButtons = document.querySelectorAll('.signup, .login')
+      signupButtons.forEach(btn => {
+        btn.removeAttribute('title')
+        btn.removeAttribute('data-tip')
+        btn.removeAttribute('data-tooltip')
+        btn.title = ''
+      })
+    }
+
+    // Run once on load
+    removeTooltips()
+    setTimeout(removeTooltips, 100)
+
     loadDrives()
+
+    return () => {
+      if (toggleBtn && menu) {
+        toggleBtn.removeEventListener('click', handleToggle)
+      }
+    }
   }, [])
 
   const loadDrives = () => {
@@ -98,6 +118,10 @@ function Home() {
     setShowDriveModal(true)
   }
 
+  const handleQuizClick = () => {
+    navigate('/eligibility-quiz')
+  }
+
   const handleCloseModal = (e) => {
     if (e.target.classList.contains('modal-overlay') || e.target.hasAttribute('data-close') || e.target.closest('[data-close]')) {
       setShowDriveModal(false)
@@ -124,9 +148,9 @@ function Home() {
             <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
-        <div className="auth">
-          <button className="login"><Link to="/login">Login</Link></button>
-          <button className="signup"><Link to="/signup">Sign Up</Link></button>
+      <div className="auth">
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/signup" className="signup">Sign Up</Link>
           <i className="fas fa-bars" style={{ cursor: 'pointer' }} id="toggle-bnt"></i>
         </div>
       </nav>
@@ -162,7 +186,7 @@ function Home() {
               <h4>Host a Blood Drive</h4>
               <p>Organize a drive in your community</p>
             </div>
-            <div className="location">
+            <div className="location" onClick={handleQuizClick}>
               <i className="fa-solid fa-calendar-check"></i>
               <h4>Eligibility Quiz</h4>
               <p>Check if you can donate blood</p>

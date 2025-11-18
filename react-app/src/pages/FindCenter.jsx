@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/FindCenter.css'
+import '../styles/Pages.css'
 
 const GOOGLE_PLACES_API_KEY = 'AIzaSyDUaCSzEogPhRKeHDEqmx6UMS2iHzXnvrY'
 
 function FindCenter() {
+  const navigate = useNavigate()
   const [distance, setDistance] = useState(10)
   const [centerType, setCenterType] = useState('')
   const [userLatitude, setUserLatitude] = useState(null)
@@ -192,15 +194,15 @@ function FindCenter() {
           </ul>
         </div>
         <div className="auth">
-          <button className="login"><Link to="/login">Login</Link></button>
-          <button className="signup"><Link to="/signup">Sign Up</Link></button>
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/signup" className="signup">Sign Up</Link>
           <i className="fas fa-bars" style={{ cursor: 'pointer' }} id="toggle-bnt"></i>
         </div>
       </nav>
 
       <main className="center-search">
       {/* Hero Section */}
-      <div className="search-hero">
+      <div className="search-hero find-center">
         <div className="hero-content">
           <div className="hero-icon">
             <i className="fa-solid fa-hospital"></i>

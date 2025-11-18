@@ -1,9 +1,99 @@
+/* COMPLETELY DISABLE ALL TOOLTIPS ON THE PAGE */
+
+/* Disable browser's default tooltip behavior */
+*:hover::after,
+*:hover::before {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Block tooltip libraries and browser extensions */
+[data-tip],
+[data-tooltip],
+[aria-describedby],
+.tooltip,
+.tippy-tooltip,
+[class*="tooltip"],
+[id*="tooltip"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 /* Reset */
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
+
+/* Prevent browser extension tooltips and overlays */
+[data-testid],
+[data-tip],
+[data-tooltip],
+[title]:not(head):not(link):not(meta):not(script):not(style) {
+    position: relative !important;
+}
+
+/* Completely block ALL tooltips and overlays on signup button and auth area */
+.auth,
+.auth *,
+.signup,
+.signup *,
+.login,
+.login * {
+    position: relative !important;
+    z-index: 99999 !important;
+}
+
+.auth::before,
+.auth::after,
+.signup::before,
+.signup::after,
+.login::before,
+.login::after {
+    display: none !important;
+    content: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Block any external tooltips/overlays - but NOT our auth buttons */
+.auth *[class*="tooltip"]:not(.login):not(.signup),
+.auth *[class*="popup"]:not(.login):not(.signup),
+.auth *[id*="tooltip"],
+.auth *[id*="popup"],
+.auth *[data-tip]:not(.login):not(.signup),
+.auth *[data-tooltip]:not(.login):not(.signup) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Block browser extension overlays */
+*[style*="position: absolute"],
+*[style*="position: fixed"] {
+    z-index: 1 !important;
+}
+
+.auth {
+    z-index: 100000 !important;
+}
+
+/* Hide all pseudo-elements on auth buttons that might be injected by extensions */
+.auth *[class*="tooltip"],
+.auth *[class*="popup"],
+.auth *[id*="tooltip"],
+.auth *[id*="popup"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
 body{
     width: 100%;
     height: 100%;
@@ -13,9 +103,38 @@ body{
     padding: 0;
 }
 
+/* CSS variables for header/modal/chatbot spacing */
+:root{
+  --header-height: 70px;
+  --modal-top-gap: 16px;
+}
+
+/* Remove all tooltips, shadows, and overlays from signup button */
+.signup::before,
+.signup::after,
+.auth::before,
+.auth::after {
+  display: none !important;
+  content: none !important;
+}
+
+.signup,
+.signup *,
+.auth {
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+/* Prevent browser extensions from adding overlays */
+.signup[title],
+.signup[data-title],
+.signup[aria-label] {
+  position: relative !important;
+}
+
 /* ---------------- NAVBAR ---------------- */
 .navbar{
-    display: flex;
+  display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
@@ -23,6 +142,9 @@ body{
     background-color: #ffffff;
     margin: 0;
     padding: 0;
+  /* keep navbar above modals, toasts and chatbot */
+  position: relative;
+  z-index: 20000;
 }
 .menu ul{
     display: flex;
@@ -82,6 +204,9 @@ body{
 /* Auth Buttons */
 .auth{
     margin-right:20px;
+    background: transparent;
+    position: relative;
+    z-index: 100;
 }
 .login{
     padding: 12px 20px;
@@ -102,6 +227,24 @@ body{
     background-color:rgb(181,28,28) ;
     color:rgb(255,255,255);
     cursor: pointer;
+    box-shadow: none !important;
+    outline: none !important;
+    position: relative;
+    z-index: 101;
+    /* Completely disable tooltips on this element */
+    pointer-events: auto;
+}
+.signup::before,
+.signup::after,
+.signup *::before,
+.signup *::after {
+    display: none !important;
+    content: none !important;
+}
+.auth::before,
+.auth::after {
+    display: none !important;
+    content: none !important;
 }
 .signup a{
     text-decoration: none;
@@ -941,13 +1084,14 @@ body{
 .modal-content{
   position: relative;
   max-width: 640px;
-  margin: 60px auto;
+  /* Keep a minimum gap between header and modal to avoid visual 'touching' */
+  margin: calc(var(--header-height, 70px) + var(--modal-top-gap, 16px)) auto;
   background: #fff;
   border-radius: 8px;
   padding: 22px 24px 28px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
   overflow: auto;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - var(--header-height, 70px) - var(--modal-top-gap, 16px) - 64px);
 }
 .modal-content h2{margin-top:0;color:#111;font-size:22px}
 .modal-content p{color:#666;margin-bottom:14px}
@@ -967,6 +1111,14 @@ body{
 .modal-content .row{display:flex;gap:12px}
 .modal-content .row label{flex:1}
 .modal-content .form-actions{display:flex;gap:12px;margin-top:18px}
+
+/* Debug helper: disable pointer-events on modals when html has .debug-nav
+   Use in console: document.documentElement.classList.add('debug-nav')
+*/
+.debug-nav .modal,
+.debug-nav .modal-overlay {
+  pointer-events: none !important;
+}
 
 /* Accent for top of form */
 .modal-content .form-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}

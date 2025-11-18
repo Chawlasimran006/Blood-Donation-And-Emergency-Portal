@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import '../styles/Pages.css'
 
 function FAQs() {
+  const navigate = useNavigate()
   const [openIndex, setOpenIndex] = useState(null)
 
   const faqs = [
@@ -72,14 +74,14 @@ function FAQs() {
           </ul>
         </div>
         <div className="auth">
-          <button className="login"><Link to="/login">Login</Link></button>
-          <button className="signup"><Link to="/signup">Sign Up</Link></button>
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/signup" className="signup">Sign Up</Link>
           <i className="fas fa-bars" style={{ cursor: 'pointer' }} id="toggle-bnt"></i>
         </div>
       </nav>
 
       <div className="page-container">
-      <div className="page-hero">
+      <div className="page-hero faqs">
         <h1>Frequently Asked Questions</h1>
         <p>Find answers to common questions about blood donation</p>
       </div>

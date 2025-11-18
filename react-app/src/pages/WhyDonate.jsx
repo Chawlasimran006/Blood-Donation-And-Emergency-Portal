@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import '../styles/Pages.css'
 
 function WhyDonate() {
+  const navigate = useNavigate()
   return (
     <>
       {/* Navbar */}
@@ -22,14 +24,14 @@ function WhyDonate() {
           </ul>
         </div>
         <div className="auth">
-          <button className="login"><Link to="/login">Login</Link></button>
-          <button className="signup"><Link to="/signup">Sign Up</Link></button>
+          <Link to="/login" className="login">Login</Link>
+          <Link to="/signup" className="signup">Sign Up</Link>
           <i className="fas fa-bars" style={{ cursor: 'pointer' }} id="toggle-bnt"></i>
         </div>
       </nav>
 
       <div className="page-container">
-      <div className="page-hero">
+      <div className="page-hero why-donate">
         <h1>Why Donate Blood?</h1>
         <p>One donation can save up to three lives</p>
       </div>

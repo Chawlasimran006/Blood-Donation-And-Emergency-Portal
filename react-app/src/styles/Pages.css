@@ -25,6 +25,51 @@ body {
   margin-bottom: 40px;
 }
 
+/* All page hero backgrounds - unified red gradient */
+.page-hero.why-donate,
+.page-hero.about-us,
+.page-hero.contact-us,
+.page-hero.faqs,
+.page-hero.find-center,
+.page-hero.donate,
+.page-hero.eligibility-quiz {
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%) !important;
+  color: white !important;
+}
+
+/* Ensure all text elements in page heroes are white */
+.page-hero.why-donate h1,
+.page-hero.why-donate p,
+.page-hero.about-us h1,
+.page-hero.about-us p,
+.page-hero.contact-us h1,
+.page-hero.contact-us p,
+.page-hero.faqs h1,
+.page-hero.faqs p,
+.page-hero.find-center h1,
+.page-hero.find-center p,
+.page-hero.donate h1,
+.page-hero.donate p,
+.page-hero.eligibility-quiz h1,
+.page-hero.eligibility-quiz p {
+  color: white !important;
+}
+
+/* Special hero sections for pages with different structures */
+.search-hero.find-center,
+.donate-container {
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%) !important;
+  color: white !important;
+}
+
+/* Ensure text in special hero sections are white */
+.search-hero.find-center h1,
+.search-hero.find-center p,
+.donate-container h1,
+.donate-container p {
+  color: white !important;
+}
+
 .page-hero h1 {
   font-size: 3rem;
   margin-bottom: 15px;
