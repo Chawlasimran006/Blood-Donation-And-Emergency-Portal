@@ -68,7 +68,7 @@
 			let drives = [];
 			try{ drives = JSON.parse(localStorage.getItem('drives')||'[]'); }catch(e){ drives = []; }
 			if(!drives.length){
-				// optionally show a placeholder
+				
 				const ph = document.createElement('div');
 				ph.style.gridColumn = '1/-1';
 				ph.style.textAlign = 'center';

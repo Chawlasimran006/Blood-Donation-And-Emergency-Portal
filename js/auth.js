@@ -1,19 +1,18 @@
 // Authentication Manager
 const AUTH_API = 'http://localhost:5000/api/auth';
 
-// Check if user is logged in when page loads
+
 document.addEventListener('DOMContentLoaded', function() {
     checkAuth();
 });
 
-// Check authentication status
 async function checkAuth() {
     const token = localStorage.getItem('authToken');
     
     if (!token) {
-        // No token, redirect to React login route
-        if (!window.location.pathname.includes('/login') && !window.location.pathname.includes('/signup')) {
-            window.location.href = '/login';
+        // No token, redirect to login
+        if (!window.location.pathname.includes('login.html') && !window.location.pathname.includes('sign.html')) {
+            window.location.href = '/html/login.html';
         }
         return false;
     }
@@ -46,7 +45,6 @@ async function checkAuth() {
     }
 }
 
-// Login function
 async function login(email, password) {
     try {
         const response = await fetch(`${AUTH_API}/login`, {
@@ -76,7 +74,7 @@ async function login(email, password) {
     }
 }
 
-// Signup function
+
 async function signup(name, email, password) {
     try {
         const response = await fetch(`${AUTH_API}/signup`, {
@@ -114,12 +112,12 @@ function logout() {
     window.location.href = '/login';
 }
 
-// Update UI with user info
+
 function updateUIWithUser(user) {
     const userName = user?.name || localStorage.getItem('userName');
     
     if (userName) {
-        // Update navbar with user name
+       
         const loginBtn = document.querySelector('.login');
         const signupBtn = document.querySelector('.signup');
         

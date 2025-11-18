@@ -1,4 +1,4 @@
-// Chatbot functionality with Gemini API integration
+
 (function() {
   'use strict';
 
@@ -32,7 +32,7 @@
       }
     });
 
-    // Initialize conversation with context about SaveLife
+    
     conversationHistory = [{
       role: 'user',
       parts: [{ text: 'You are a helpful assistant for SaveLife, a blood donation platform. Help users with questions about blood donation, eligibility, finding drives, hosting drives, and general information. Be friendly and informative.' }]
@@ -51,7 +51,7 @@
     }
   }
 
-  // Open chatbot
+ 
   function openChatbot() {
     chatbotWindow.classList.remove('chatbot-hidden');
     chatbotToggle.style.display = 'none';
@@ -87,7 +87,7 @@
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
   }
 
-  // Show typing indicator
+ 
   function showTypingIndicator() {
     const typingDiv = document.createElement('div');
     typingDiv.className = 'typing-indicator';
@@ -116,7 +116,7 @@
     }
   }
 
-  // Send message to Gemini API
+  
   async function sendToGemini(userMessage) {
     // Add user message to conversation history
     conversationHistory.push({
@@ -168,7 +168,7 @@
       if (data.candidates && data.candidates[0] && data.candidates[0].content) {
         const botResponse = data.candidates[0].content.parts[0].text;
         
-        // Add bot response to conversation history
+       
         conversationHistory.push({
           role: 'model',
           parts: [{ text: botResponse }]
@@ -184,23 +184,23 @@
     }
   }
 
-  // Send message handler
+  
   async function sendMessage() {
     const message = chatbotInput.value.trim();
     
     if (!message) return;
 
-    // Check if API key is configured
+    
     if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
       addMessage('Please configure your Gemini API key in chatbot.js. Get your free API key at https://makersuite.google.com/app/apikey', false, true);
       return;
     }
 
-    // Add user message to chat
+   
     addMessage(message, true);
     chatbotInput.value = '';
     
-    // Disable input while processing
+    
     chatbotInput.disabled = true;
     chatbotSend.disabled = true;
     
