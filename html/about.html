@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - SaveLife</title>
   
-  <!-- Common CSS -->
+  
   <link rel="stylesheet" href="../css/donation.css">
   <link rel="stylesheet" href="../css/about.css">
 
@@ -14,7 +14,7 @@
   <link rel="icon" href="../favicon1.ico">
 
   <style>
-    /* Sticky footer */
+    
     .footer {
       position: fixed;
       bottom: 0;
@@ -39,7 +39,7 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+ 
   <nav class="navbar">
     <div class="logo">
       <span class="logoimg"><i class="fa-solid fa-heart"></i></span>
@@ -49,7 +49,7 @@
       <ul>
         <li><a href="donation.html">Home</a></li>
         <li><a href="why-donate.html">Why Donate</a></li>
-        <li><a href="drive.html">Find a Drive</a></li>
+        <li><a href="find-center.html">Find a Center</a></li>
         <li><a href="about.html" class="active">About Us</a></li>
         <li><a href="faqs.html">FAQs</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -62,7 +62,7 @@
     </div>
   </nav>
 
-  <!-- About Section -->
+  
   <main>
     <section class="about">
       <div class="about-header">
@@ -77,11 +77,11 @@
         </div>
       </div>
 
-      <!-- Team Section -->
+     
       <div class="about-team">
         <h2>Our Team</h2>
         <div class="team-grid" id="teamGrid">
-          <!-- Team members loaded dynamically -->
+          
         </div>
       </div>
 
@@ -109,14 +109,14 @@
     </section>
   </main>
 
-  <!-- Footer -->
+ 
   <footer class="footer">
     <p>© 2025 SaveLife. All Rights Reserved.</p>
   </footer>
 
   <!-- JS Scripts -->
   <script>
-    // Load Team Members dynamically from JSON
+   
     fetch('../team.json')
       .then(response => response.json())
       .then(data => {
@@ -134,7 +134,7 @@
       })
       .catch(err => console.error('Error loading team data:', err));
 
-    // Interactive Counters
+    
     function animateCounter(id, target){
       let count = 0;
       const element = document.getElementById(id);
@@ -147,7 +147,7 @@
       }, 20);
     }
 
-    // Animate counters on load
+   
     animateCounter('donors', 1500);
     animateCounter('bloodUnits', 1200);
     animateCounter('livesSaved', 1000);

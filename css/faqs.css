@@ -1,4 +1,4 @@
-/* FAQs Section */
+
 .faqs-section {
   padding: 4rem 2rem;
   max-width: 900px;
@@ -75,7 +75,7 @@
   padding: 0 20px;
 }
 
-/* Text + Speaker layout */
+
 .faq-answer p {
   padding: 15px 0;
   margin: 0;
@@ -87,7 +87,7 @@
   gap: 10px;
 }
 
-/* 🔊 Speaker Icon */
+
 .speak-icon {
   font-size: 20px;
   cursor: pointer;
@@ -105,9 +105,7 @@
   color: rgb(181, 28, 28);
 }
 
-/* ------------------------------------------------ */
-/* ⭐ NEW CLEAN FEEDBACK SECTION ⭐ */
-/* ------------------------------------------------ */
+
 
 .feedback-section {
   margin-top: 40px;
@@ -151,17 +149,17 @@
   transform: translateY(-2px);
 }
 
-/* Helpful button = green border */
+
 .fb-btn.helpful {
   border-color: #4caf50;
 }
 
-/* Not helpful = red border */
+
 .fb-btn.not-helpful {
   border-color: #e53935;
 }
 
-/* Feedback message */
+
 .feedback-msg {
   font-size: 17px;
   color: #444;
@@ -170,7 +168,7 @@
   margin-top: 5px;
 }
 
-/* Sticky footer */
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -186,7 +184,7 @@
   z-index: 1000;
 }
 
-/* Body padding to prevent overlap */
+
 body {
   padding-bottom: 60px;
   font-family: 'Poppins', sans-serif;

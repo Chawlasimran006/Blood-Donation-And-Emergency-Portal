@@ -13,13 +13,13 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, '..')));
 
-// Simple request logger to help debug incoming requests
+
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
     next();
 });
 
-// Configuration with fallback values
+
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/blood-donation-db';
 const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-change-this-12345';
 const PORT = process.env.PORT || 5000;
@@ -64,7 +64,7 @@ const authMiddleware = (req, res, next) => {
     }
 };
 
-// === AUTH ROUTES ===
+
 
 // Sign Up Route
 app.post('/api/auth/signup', async (req, res) => {
@@ -149,7 +149,7 @@ app.post('/api/auth/logout', (req, res) => {
     res.json({ message: 'Logout successful' });
 });
 
-// === PROTECTED ROUTES (Require Authentication) ===
+
 
 // Example: Get user profile
 app.get('/api/user/profile', authMiddleware, async (req, res) => {

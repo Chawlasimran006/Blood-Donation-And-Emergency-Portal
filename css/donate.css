@@ -1,4 +1,4 @@
-    /* Global Reset */
+   
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* ---------------- NAVBAR ---------------- */
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -243,9 +243,8 @@ select:focus {
     background-color: #b71c1c;
 }
 
-/* ✅ RESPONSIVE DESIGN */
 
-/* Tablets (768px and below) */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -267,7 +266,7 @@ select:focus {
     }
 }
 
-/* Mobile Devices (480px and below) */
+
 @media (max-width: 480px) {
     .navbar {
         padding: 10px 15px;
@@ -310,21 +309,21 @@ select:focus {
 /* Donor List Styles */
 #donorList {
     margin-top: 20px;
-    max-height: 300px;      /* limit height */
-    overflow-y: auto;       /* scroll if too many donors */
-    padding-right: 5px;     /* prevent scrollbar overlap */
+    max-height: 300px;      
+    overflow-y: auto;       
+    padding-right: 5px;    
 }
 
 /* Individual Donor Card */
 .donor-card {
-    background-color: #ffecec;        /* soft red background */
-    border: 1px solid #d32f2f;       /* red border */
+    background-color: #ffecec;        
+    border: 1px solid #d32f2f;      
     border-radius: 8px;
     padding: 12px 15px;
     margin-bottom: 10px;
     text-align: left;
     font-size: 14px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* subtle shadow */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); 
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -341,7 +340,7 @@ select:focus {
 }
 
 .donor-card strong {
-    color: #b71c1c; /* highlight donor name */
+    color: #b71c1c; 
 }
 
 label.required::after {
